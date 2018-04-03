@@ -1,0 +1,334 @@
+# dia file for dialogue for npc: npc_jana
+
+npc.id:npc_jana
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_jana", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jana", "talked")
+	# translation: 
+	translation.tag:DL_Jana_Hello
+	translation.en:Hello there! You look like you're freezing. 
+	translation.de:Hallo du! Du siehst ziemlich verfroren aus.
+	translation.ch:Hoi du! Du gsesch zemmli verfrore us.
+	[
+		# Link node, tag is next tag
+		tag:5
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_Hello2
+	translation.en:Come, sit down and warm yourself on our fire. And why not have a little chat.
+	translation.de:Komm und setz dich an unser Feuer um dich etwas aufzuwärmen. Und wieso reden wir nicht ein bisschen.
+	translation.ch:Chom und sitz chli a euses Fürli zum dich ufwärme. Und wieso rede mer ned chli.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:not DL:isConditionFulfilled("npc_jana", "who_are_you")
+		# translation: 
+		translation.tag:DL_Choice_WhoAreYou
+		translation.en:Who are you guys?
+		translation.de:Wer seid ihr?
+		translation.ch:Wer sind ihr Lütlis?
+	]
+	[
+		# Link node, tag is next tag
+		tag:8
+		condition:DL:isConditionFulfilled("npc_jana", "who_are_you") and not DL:isConditionFulfilled("npc_jana", "plans")
+		# translation: 
+		translation.tag:DL_Choice_Plans
+		translation.en:How's the hunt going?
+		translation.de:Wie läuft's denn so mit der Jagd?
+		translation.ch:We laufts denn so mit de Jagd?
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		condition:DL:isConditionFulfilled("npc_jana", "who_are_you") and not DL:isConditionFulfilled("npc_jana", "yasha")
+		# translation: 
+		translation.tag:DL_Choice_Yasha
+		translation.en:Do you know Yasha?
+		translation.de:Kennst du Yasha?
+		translation.ch:Kennsch du d'Yasha?
+	]
+	[
+		# Link node, tag is next tag
+		tag:16
+		condition:not DL:isConditionFulfilled("npc_jana", "mages")
+		# translation: 
+		translation.tag:DL_Choice_Mages
+		translation.en:Have you seen some mages passing through here?
+		translation.de:Habt ihr ein paar Magier hier vorbeikommen sehen?
+		translation.ch:Hender gse, we es paar Magier do verbi cho sind?
+	]
+	[
+		# Link node, tag is next tag
+		tag:4
+		condition:not DL:isConditionFulfilled("npc_jana", "trade")
+		# translation: 
+		translation.tag:DL_Choice_UnlockTrade
+		translation.en:Do you sell something?
+		translation.de:Verkaufst du etwas?
+		translation.ch:Verchaufsch öppis?
+	]
+	[
+		# Link node, tag is next tag
+		tag:3
+		condition:DL:isConditionFulfilled("npc_jana", "trade")
+		# translation: 
+		translation.tag:DL_Choice_Trade
+		translation.en:Show me your wares.
+		translation.de:Zeig mir deine Waren.
+		translation.ch:Zeig mer dini Ware.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jana", "who_are_you")
+	# translation: 
+	translation.tag:DL_Jana_WhoAreYou
+	translation.en:Jason and I are demon hunters. We make sure that the demons of this valley stay here and don't create any problems.
+	translation.de:Jason und ich sind Dämonenjäger. Wir schauen, dass die Dämonen dieses Tals hierbleiben und keine Schwierigkeiten machen.
+	translation.ch:De Jason und ich sind Dämonejäger. Mir luege, dass d'Dämone vo dem Tal do blibed und kei Problem möched.
+	[
+		# Link node, tag is next tag
+		tag:7
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_WhoAreYou2
+	translation.en:We also hunt them for trophies like fur and teeth. They can be used to craft fine armour and the merchants in Gandria will gladly buy them.
+	translation.de:Wir jagen sie auch für Trophäen wie Felle und Zähne. Die kann man zu schönen Rüstungen verarbeiten und die Händler in Gandria kaufen sie gerne.
+	translation.ch:Mir jaged sie au für Trophäene wie Fell und Zäh. Die chame zu schöne Rüstige verarbeite und d'Händler in Gandria chaufed sie au gern.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jana", "plans")
+	# translation: 
+	translation.tag:DL_Jana_Plans
+	translation.en:Pretty well. We found some cat demons and even a gargoyle recently.
+	translation.de:Ziemlich gut. Wir haben ein paar Katzendämonen und kürzlich sogar einen Gargoyle gefunden.
+	translation.ch:Zemmli guet. Mer händ es paar Chatzedämone und letsti sogar en Gargoyle gfunde.
+	[
+		# Link node, tag is next tag
+		tag:9
+	]
+}
+{1
+	# [9] NPC Node
+	tag:9
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_Plans2
+	translation.en:But the really fat booty would be in that temple in the North.
+	translation.de:Aber die richtig fette Beute würden wir im Tempel im Norden finden.
+	translation.ch:Aber die richtig fetti Büti würde mer im Tempel im Norde finde.
+	[
+		# Link node, tag is next tag
+		tag:10
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_Plans3
+	translation.en:Unfortunately, the spells guarding it are too strong and we can't get in. But there are still a lot of demons left in the ruins surrounding it.
+	translation.de:Unglücklicherweise sind die Zauber, die ihn beschützen, zu stark und wir kommen nicht rein. Aber es gibt immer noch genügend Dämonen in den umliegenden Ruinen.
+	translation.ch:Blöderwis sind d'Zauber wo ihn beschützend z'starch und mer chömed ned ine. Aber es git immer no gnueg Dämone ide Ruine ossedra.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jana", "yasha")
+	# translation: 
+	translation.tag:DL_Jana_Yasha
+	translation.en:Yes, of course. She's guarding the valley. We wouldn't dare to fight her. Anyway, she's sleeping at the moment.
+	translation.de:Ja, sicher. Sie wacht über das Tal und wir würden keinen Kampf mit ihr riskieren. Sie schläft momentan sowieso.
+	translation.ch:Jo, sicher. Sie wacht übers Tal und mer würde kei Kampf mit ihre riskiere. Sie schloft momentan sowieso.
+	[
+		# Link node, tag is next tag
+		tag:12
+	]
+}
+{2
+	# [12] Choice Node
+	tag:12
+	[
+		# Link node, tag is next tag
+		tag:13
+		condition:DL:isConditionFulfilled("npc_yasha", "unfriendly")
+		# translation: 
+		translation.tag:DL_Choice_KilledYasha
+		translation.en:I killed her.
+		translation.de:Ich habe sie getötet.
+		translation.ch:Ich han si killt.
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		condition:not DL:isConditionFulfilled("npc_yasha", "unfriendly")
+		# translation: 
+		translation.tag:DL_Choice_BefriendedYasha
+		translation.en:She's not sleeping anymore, I made friends with her.
+		translation.de:Sie schläft nicht mehr, ich habe mich mit ihr angefreundet.
+		translation.ch:Si schloft nümme, ich bi ez ihre Kolleg.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-2
+		# translation: 
+		translation.tag:DL_Choice_Mhm
+		translation.en:Mhm...
+		translation.de:Mhm...
+		translation.ch:Mhm...
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_KilledYasha
+	translation.en:(Jana looks shocked) What? This can't be! And if it's true; you shouldn't have! 
+	translation.de:(Jana sieht dich entsetzt an) Was? Das kann nicht sein. Und selbst wenn es war ist, hättest du das nicht tun sollen.
+	translation.ch:(D'Jana luegt dich entsetzt a) Was? Das cha ned si. Und sogar wenns stimmt, hättisch das ned sölle mache.
+	[
+		# Link node, tag is next tag
+		tag:15
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_KilledYasha2
+	translation.en:The other demons will be far more aggressive now. More work for us I guess. (Sighs)
+	translation.de:Die anderen Dämonen werden jetzt viel aggressiver sein. Naja, mehr Arbeit für uns. (Seufzt)
+	translation.ch:Di andere Dämone werde jetzt viel aggressiver si. Naja, meh Arbeit för eus. (Süfzget)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jana_BefriendedYasha
+	translation.en:Oh, really? Very interesting news. We won't do her any harm of course, she's like a goddess for this valley.
+	translation.de:Oh, wirklich? Sehr interessante Neuigkeiten. Wir werden ihr natürlich nichts antun, sie ist wie eine Göttin für dieses Tal.
+	translation.ch:Oh, wörkli? Sehr interessanti Neuigkeite. Mer werded ihre natürlich nüt mache, sie esch wie en Göttin für das Tal.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [16] NPC Node
+	tag:16
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jana", "mages")
+	# translation: 
+	translation.tag:DL_Jana_Mages
+	translation.en:Hm, yes. There were four of them and they were heading for the old temple in the North.
+	translation.de:Hm, ja. Sie waren zu viert und sie gingen zum alten Tempel im Norden.
+	translation.ch:Hm, jo. Sie sind z'vierte gsi und sind zu dem alte Tempel im Norde gange.
+	[
+		# Link node, tag is next tag
+		tag:17
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	trigger:DL:addQuestDescription("find_velius", 2)
+	# translation: 
+	translation.tag:DL_Jana_Mages2
+	translation.en:We offered to escort them, but their leader was very unfriendly. I don't know whether they made it.
+	translation.de:Wir haben ihnen angeboten, sie zu begleiten, aber ihr Anführer war sehr unfreundlich. Ich weiss nicht, ob sie es geschafft haben.
+	translation.ch:Mer händ ihne abote, sie z'begleite, aber ihre Aführer esch sehr unfröndlich gsi. Ich weiss ned öb sies gschafft händ.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jana", "trade")
+	# translation: 
+	translation.tag:DL_Jana_UnlockTrade
+	translation.en:Yes, I got some trophies and spare armour, if you're interested.
+	translation.de:Ja, ich habe ein paar Trophäen und Ersatzrüstung, falls du interessiert bist.
+	translation.ch:Jo, i han es paar Trophäene und vörigi Rüstige, falls du interessiert besch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{4
+	# [3] Trade Node
+	tag:3
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}

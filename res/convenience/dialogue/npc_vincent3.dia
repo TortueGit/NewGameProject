@@ -1,0 +1,856 @@
+# dia file for dialogue for npc: npc_vincent3
+
+npc.id:npc_vincent3
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_vincent3", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:21
+		condition:DL:isConditionFulfilled("npc_vincent3", "shadowstalkers") and DL:getGuild() ~= "void" and not DL:isConditionFulfilled("npc_vincent3", "guild")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+		condition:not DL:isConditionFulfilled("npc_vincent3", "guild")
+	]
+	[
+		# Link node, tag is next tag
+		tag:16
+		condition:DL:getGuild() == "thief"
+	]
+	[
+		# Link node, tag is next tag
+		tag:17
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "talked")
+	trigger:DL:changeQuestState("rusty_key", "completed")
+	# translation: 
+	translation.tag:DL_Vincent_Welcome
+	translation.en:So you finally found us. Welcome to the the hideout of the Shadow Stalkers.
+	translation.de:Du hast also den Weg zu uns gefunden. Willkommen im Versteck der Schattenläufer.
+	translation.ch:Du häsch also dä Wäg zu üs gfundä. Willkomme im Versteck vodä Schatteläufer.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [21] NPC Node
+	tag:21
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "guild")
+	# translation: 
+	translation.tag:DL_Vincent_CantJoin
+	translation.en:You've already made your decision. What a waste...
+	translation.de:Du hast deine Entscheidung bereits getroffen. Was für eine Verschwendung...
+	translation.ch:Du häsch dini Entscheidig scho troffä. Was füre Verschwändig...
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:3
+		condition:not DL:isConditionFulfilled("npc_vincent3", "shadowstalkers")
+		# translation: 
+		translation.tag:DL_Choice_WhoAreYou
+		translation.en:Who are the "Shadow Stalkers"?
+		translation.de:Wer sind die "Schattenläufer"?
+		translation.ch:Wer sind d'"Schatteläufer"?
+	]
+	[
+		# Link node, tag is next tag
+		tag:4
+		condition:not DL:isConditionFulfilled("npc_vincent3", "why_hiding")
+		# translation: 
+		translation.tag:DL_Choice_WhyHiding
+		translation.en:Why are you hiding?
+		translation.de:Wieso versteckt ihr euch?
+		translation.ch:Weso verstecked ihr eu?
+	]
+	[
+		# Link node, tag is next tag
+		tag:8
+		condition:DL:isConditionFulfilled("npc_vincent3", "why_hiding") and not DL:isConditionFulfilled("npc_vincent3", "inform_clerics")
+		# translation: 
+		translation.tag:DL_Choice_InformClerics
+		translation.en:What if I just inform the clerics about your little hideout?
+		translation.de:Was wenn ich den Klerikern einfach von eurem kleinen Versteck erzähle?
+		translation.ch:Was wenn ich de Kleriker eifach vo eurem chline Versteck verzell?
+	]
+	[
+		# Link node, tag is next tag
+		tag:9
+		condition:DL:isConditionFulfilled("npc_vincent3", "shadowstalkers") and not DL:isConditionFulfilled("npc_vincent3", "who_guild")
+		# translation: 
+		translation.tag:DL_Choice_WhoInGuild
+		translation.en:Who belongs to this guild?
+		translation.de:Wer gehört alles zur Gilde?
+		translation.ch:Wer ghört alles zude Gilde?
+	]
+	[
+		# Link node, tag is next tag
+		tag:10
+		condition:DL:isConditionFulfilled("npc_vincent3", "shadowstalkers") and not DL:isConditionFulfilled("npc_vincent3", "one_guild")
+		# translation: 
+		translation.tag:DL_Choice_OneGuild
+		translation.en:What if I want to join another guild?
+		translation.de:Was ist, wenn ich einer anderen Gilde beitreten will?
+		translation.ch:Was isch, weni enere andere Gilde biitrette wet?
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		condition:DL:isConditionFulfilled("npc_vincent3", "shadowstalkers") and not DL:isConditionFulfilled("npc_vincent3", "what_if_join")
+		# translation: 
+		translation.tag:DL_Choice_WhatIfJoin
+		translation.en:Why should I join you?
+		translation.de:Wieso sollte ich euch beitreten?
+		translation.ch:Weso söti eu biitrette?
+	]
+	[
+		# Link node, tag is next tag
+		tag:13
+		condition:DL:isConditionFulfilled("npc_vincent3", "shadowstalkers")
+		# translation: 
+		translation.tag:DL_Choice_IWantJoin
+		translation.en:I want to join you.
+		translation.de:Ich möchte euch beitreten.
+		translation.ch:Ich wett eu biitrette.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_WhoAreYou
+	translation.en:We are a guild that focuses on twilight magic and the benefits it brings us.
+	translation.de:Wir sind eine Gilde, die sich mit Dämmerungsmagie beschäftigt und mit den Vorteilen, die sie uns bringt.
+	translation.ch:Mir sind e Gildä wo sich mit Dämmerigsmagie beschäftigt und dä Vorteil, wos üs bringt.
+	[
+		# Link node, tag is next tag
+		tag:5
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_WhoAreYou2
+	translation.en:You seem to have an affinity to this type of magic, as you've mastered the art of summoning a picklock incredibly fast.
+	translation.de:Du scheinst eine Affinität für diese Magie zu besitzen, da du unglaublich schnell gelernt hast, wie man einen Dietrich beschwört.
+	translation.ch:Du häsch ebe glaub e Affinität für die Magie, welld unglaublich schnell glernt häsch, wieme en Dietrich beschwört.
+	[
+		# Link node, tag is next tag
+		tag:6
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "shadowstalkers")
+	# translation: 
+	translation.tag:DL_Vincent_WhoAreYou3
+	translation.en:Joining us could uncover your hidden talents...
+	translation.de:Uns beizutreten könnte deine verborgenen Talente zum Vorschein bringen...
+	translation.ch:Üs biizträtä chönt dini verborgänä Talent fürebringe...
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_WhyHiding
+	translation.en:You see what's going on in this city, right? Mages who don't study "divine" magic are frowned upon.
+	translation.de:Dir ist schon klar, was in dieser Stadt passiert? Magier die keine "heilige" Magie studieren, sind nicht gerne gesehen.
+	translation.ch:Isch dir eigentlich klar, was i däre Stadt passiert? Magier wo kei "heiligi" Magie studiered sind nöd so gärn gse.
+	[
+		# Link node, tag is next tag
+		tag:7
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "why_hiding")
+	# translation: 
+	translation.tag:DL_Vincent_WhyHiding2
+	translation.en:Twilight and elemental magic are tolerated though, in contrast to necromancy... But still; the paladins don't like what we're doing with our magic.
+	translation.de:Dämmerungs- und Elementarmagie werden jedoch toleriert, im Gegensatz zu Nekromantie. Trotzdem mögen die Paladine nicht, was wir mit unserer Magie anstellen.
+	translation.ch:Dämmerigs- und Elementarmagie werdäd abo toleriert, im Gegesatz zu Nekromantie. D'Paladin hend abo trotzdäm nöd gern wa mir mit üsere Magie so astelläd.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "inform_clerics")
+	# translation: 
+	translation.tag:DL_Vincent_InformClerics
+	translation.en:By the time the clerics would arrive here, we'd be gone and you - well, your body - would be floating around in the sewers.
+	translation.de:Bis die Kleriker hier unten wären, wären wir schon lange weg und du - beziehungsweise deine Leiche - würde in den Kanälen treiben.
+	translation.ch:Bis d'Kleriker do unnä sind, sind mir scho lang über alli Bärgä und du - also dini Leichä - wür ufem Abwasser triibe.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [9] NPC Node
+	tag:9
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "who_guild")
+	# translation: 
+	translation.tag:DL_Vincent_WhoInGuild
+	translation.en:Do I look like I'm going to tell you that? Maybe if you'd join us.
+	translation.de:Sehe ich so aus als würde ich dir das erzählen? Vielleicht, wenn du uns beitrittst.
+	translation.ch:Gse ich so us als wür i dir das verzellä? Vilicht wenn üs biträtte tuäsch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "one_guild")
+	# translation: 
+	translation.tag:DL_Vincent_OneGuild
+	translation.en:You'd be missing a great opportunity. But that's your choice.
+	translation.de:Du würdest etwas verpassen. Aber das ist deine Wahl.
+	translation.ch:Du würsch öppis verpassä. Abo das isch dini Wahl.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "what_if_join")
+	# translation: 
+	translation.tag:DL_Vincent_WhatIfJoin
+	translation.en:You'll get to learn twilight magic and besides that, you're going to get rich.
+	translation.de:Du wirst Dämmerungsmagie lernen und nebenbei noch reich werden.
+	translation.ch:Du wirsch Dämmerigsmagie lerne und usserdäm no huerä riich werdä.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_Join
+	translation.en:Good. You want to become a brother of the Shadow Stalkers, pledge your loyalty to the guild and learn the ways of the shadows?
+	translation.de:Gut. Willst du ein Bruder der Schattenläufer werden, schwörst der Gilde deine Treue und lernst die Wege der Schatten? 
+	translation.ch:Guet. Wötsch du en Brüädo vodä Schatteläufer werdä, schwörsch dini Treui zudä Gildä und lernsch d'Wäg vodä Schatte?
+	[
+		# Link node, tag is next tag
+		tag:14
+	]
+}
+{2
+	# [14] Choice Node
+	tag:14
+	[
+		# Link node, tag is next tag
+		tag:15
+		# translation: 
+		translation.tag:DL_Choice_IJoin
+		translation.en:Yes. [JOIN THE SHADOW STALKERS]
+		translation.de:Ja. [DEN SCHATTENLÄUFERN BEITRETEN]
+		translation.ch:Jo. [DE SCHATTELÄUFER BIITRETE]
+	]
+	[
+		# Link node, tag is next tag
+		tag:-2
+		# translation: 
+		translation.tag:DL_Choice_Rethink
+		translation.en:I need more time to think about this.
+		translation.de:Ich muss das nochmal überdenken.
+		translation.ch:Ich mun do nomol drüber nadenke.
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "guild")
+	trigger:DL:addConditionProgress("default", "thief")
+	trigger:DL:addReputationProgress("thief", 10)
+	trigger:DL:setGuild("thief")
+	trigger:DL:addItem("eq_body_twilightt1", 1)
+	trigger:DL:equipItem("eq_body_twilightt1")
+	trigger:DL:addQuestDescription("join_a_guild", 4)
+	# translation: 
+	translation.tag:DL_Vincent_DeclareThief
+	translation.en:You won't regret this. Welcome to our guild, shadow stalker.
+	translation.de:Das wirst du nicht bereuen. Willkommen in unserer Gilde, Schattenläufer.
+	translation.ch:Das wirsch du nöd bereue. Willkomme i üsere Gildä, Schatteläufer.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [16] Choice Node
+	tag:16
+	[
+		# Link node, tag is next tag
+		tag:18
+		condition:not DL:isConditionFulfilled("npc_vincent3", "first_spell")
+		# translation: 
+		translation.tag:DL_Choice_TeachSpells
+		translation.en:Can you teach me some spells?
+		translation.de:Kannst du mir Zauber beibringen?
+		translation.ch:Chasch du mir Zauber bibringe?
+	]
+	[
+		# Link node, tag is next tag
+		tag:19
+		condition:DL:isConditionFulfilled("npc_vincent3", "first_spell") and not DL:isSpellLearned("10")
+		# translation: 
+		translation.tag:DL_Choice_TeachMore
+		translation.en:Can you teach me more spells?
+		translation.de:Kannst du mir noch mehr Zauber beibringen?
+		translation.ch:Chasch mer na me Zauber bibringe?
+	]
+	[
+		# Link node, tag is next tag
+		tag:32
+		condition:DL:isSpellLearned("10") and not DL:isConditionFulfilled("npc_vincent3", "no_more_spells")
+		# translation: 
+		translation.tag:DL_Choice_TeachMore
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+	[
+		# Link node, tag is next tag
+		tag:12
+		condition:DL:isQuestState("lloyds_plan_thief", "void")
+		# translation: 
+		translation.tag:DL_Choice_HowCanIHelp
+		translation.en:How can I support you?
+		translation.de:Wie kann ich euch unterstützen?
+		translation.ch:Wie chani eu unterstütze?
+	]
+	[
+		# Link node, tag is next tag
+		tag:22
+		condition:not DL:isQuestState("lloyds_plan_thief", "void") and DL:isQuestState("cathedral_thief", "void")
+		# translation: 
+		translation.tag:DL_Choice_HowElseHelp
+		translation.en:What else can I do to demonstrate my skills?
+		translation.de:Was kann ich sonst noch tun um meine Fähigkeiten unter Beweis zu stellen?
+		translation.ch:Was chani susch na mache zum mini Fähigkeite unter Bewiis stelle?
+	]
+	[
+		# Link node, tag is next tag
+		tag:27
+		condition:DL:isQuestState("cathedral_thief", "started") and DL:isQuestComplete("cathedral_thief")
+		# translation: 
+		translation.tag:DL_Choice_CathedralFinished
+		translation.en:I got the candleholders.
+		translation.de:Ich habe die Kerzenständer.
+		translation.ch:Ich han d'Chärzeständer.
+	]
+	[
+		# Link node, tag is next tag
+		tag:20
+		condition:DL:isQuestState("lloyds_plan_thief", "started") and DL:isQuestComplete("lloyds_plan_thief")
+		# translation: 
+		translation.tag:DL_Choice_CompleteLloydsPlan
+		translation.en:I've talked to Lloyd...
+		translation.de:Ich habe mit Lloyd gesprochen...
+		translation.ch:Ich ha mitem Lloyd gredt...
+	]
+	[
+		# Link node, tag is next tag
+		tag:34
+		condition:DL:isQuestState("cathedral_thief", "completed") and DL:isQuestState("yasha_thief", "void")
+		# translation: 
+		translation.tag:DL_Choice_YashaStart
+		translation.en:Do you have another job for me?
+		translation.de:Hast du noch einen Auftrag für mich?
+		translation.ch:Hesch na en Uftrag für mich?
+	]
+	[
+		# Link node, tag is next tag
+		tag:35
+		condition:DL:isQuestState("yasha_thief", "started") and DL:isQuestComplete("yasha_thief")
+		# translation: 
+		translation.tag:DL_Choice_YashaComplete
+		translation.en:I found the heart of thunder.
+		translation.de:Ich habe das Donnerherz.
+		translation.ch:Ich hans Donnerherz.
+	]
+	[
+		# Link node, tag is next tag
+		tag:41
+		condition:DL:isQuestState("missing_koray", "started") and DL:isQuestDescriptionUnlocked("find_velius",3) and DL:isQuestDescriptionUnlocked("missing_koray",1) and not DL:isConditionFulfilled("npc_vincent3", "velius_found")
+		# translation: 
+		translation.tag:DL_Choice_VeliusFound
+		translation.en:I found this letter from Koray... (show letter)
+		translation.de:Ich habe diesen Brief von Koray gefunden... (Brief zeigen)
+		translation.ch:Ich ha de Brief vom Koray gfunde... (Brief zeige)
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [18] NPC Node
+	tag:18
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "first_spell")
+	trigger:DL:addItem("sp_shadowtrap", 1)
+	# translation: 
+	translation.tag:DL_Vincent_FirstSpell
+	translation.en:Yes, I will teach you. Take this scroll and learn how to summon a deadly trap.
+	translation.de:Ja, kann ich. Nimm diese Schriftrolle und lerne wie man eine tödliche Falle beschwört.
+	translation.ch:Jo, chani. Nimm die Schriftrolle und lern wieme e tödlichi Falle beschwöre tuet.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [19] NPC Node
+	tag:19
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_NoSpellReputation
+	translation.en:Maybe later. First, you need to show us that you can handle this kind of magic.
+	translation.de:Vielleicht später. Erst musst du uns zeigen, dass du auch mit dieser Magie umgehen kannst.
+	translation.ch:Vilicht spöto. Zersch muesch üs mol zeige, dass au öppis chasch dämit afangä.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [32] NPC Node
+	tag:32
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "no_more_spells")
+	# translation: 
+	translation.tag:DL_Vincent_NoMoreSpells
+	translation.en:No, I've taught you everything I know.
+	translation.de:Nein, ich habe dir alles beigebracht, was ich weiss.
+	translation.ch:Nei, ich ha dir alles biibrocht, wani weiss.
+	[
+		# Link node, tag is next tag
+		tag:33
+	]
+}
+{1
+	# [33] NPC Node
+	tag:33
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_NoMoreSpells2
+	translation.en:But that doesn't mean that there are no more twilight spells out there. They just need to be discovered.
+	translation.de:Aber das heisst nicht, dass es da draussen keine weiteren Dämmerungs-Zauber mehr gibt. Man muss sie nur finden.
+	translation.ch:Abo das will nöd heisse, dases döt usse ke Dämmerigs-Zaubo me git. Me muä si nur findä.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_LloydsPlan
+	translation.en:You know the leader of the clerics, Lloyd, don't you? He's been acting strange lately, it seems like he's planning something.
+	translation.de:Du kennst den Anführer der Kleriker, Lloyd, nicht wahr? Er hat sich in letzter Zeit seltsam verhalten, es scheint als plane er etwas.
+	translation.ch:Du kennsch dä Afühäro vodä Kleriker, dä Lloyd, gäll? Er hät sich i letschter Ziit komisch beno, es schiint als würor öppis plane.
+	[
+		# Link node, tag is next tag
+		tag:26
+	]
+}
+{1
+	# [26] NPC Node
+	tag:26
+	# triggers: 
+	trigger:DL:changeQuestState("lloyds_plan_thief", "started")
+	# translation: 
+	translation.tag:DL_Vincent_LloydsPlan2
+	translation.en:We need someone who can talk to him and maybe even work for him. If you find out what he's up to, come back and report.
+	translation.de:Wir brauchen jemanden, der mit ihm sprechen kann und vielleicht auch für ihn arbeitet. Falls du herausfindest, was er vorhat, komm wieder und berichte uns davon.
+	translation.ch:Mir bruched öppor, wo mit ihm redä chan und vilicht sogar für ihn schaffä tuet. Fallsd usefindsch, was er vor het, chum wiedär und verzell üs dävo.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [22] NPC Node
+	tag:22
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_CathedralThief
+	translation.en:The clerics have made a big mistake when they tried to exorcise a dangerous grimoire about necromancy.
+	translation.de:Die Kleriker haben einen grossen Fehler gemacht, als sie ein gefährliches Buch über Nekromantie bannen wollten.
+	translation.ch:D'Kleriker händ en grosse Fähler gmacht wo si es gföhrlichs Buech über Nekromantie hend wöle bannä.
+	[
+		# Link node, tag is next tag
+		tag:23
+	]
+}
+{1
+	# [23] NPC Node
+	tag:23
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_CathedralThief2
+	translation.en:The book is running amok in their cathedral. A great opportunity for us though.
+	translation.de:Das Buch läuft in ihrer Kathedrale Amok. Das ist allerdings eine gute Chance für uns.
+	translation.ch:Es Buech lauft i ihrerä Kathedrale Amok. Das isch allerdings e gueti Chance für üs.
+	[
+		# Link node, tag is next tag
+		tag:24
+	]
+}
+{1
+	# [24] NPC Node
+	tag:24
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_CathedralThief3
+	translation.en:While they're distracted, it should be mere child's play to steal the precious candleholders from their cathedral.
+	translation.de:Während sie abgelenkt sind, sollte es ein Kinderspiel sein, die wertvollen Kerzenständer aus ihrer Kathedrale zu stehlen.
+	translation.ch:Während si abglenkt sind, söts es Chindärspiel si, di wertvolle Chärzeständäo us ihrerä Kathedrale z'chluppä.
+	[
+		# Link node, tag is next tag
+		tag:25
+	]
+}
+{1
+	# [25] NPC Node
+	tag:25
+	# triggers: 
+	trigger:DL:changeQuestState("cathedral_thief", "started")
+	# translation: 
+	translation.tag:DL_Vincent_CathedralThief4
+	translation.en:Bring us those golden candleholders and I'll teach you more about our magic.
+	translation.de:Bring uns diese goldenen Kerzenständer und ich werde dich mehr über unsere Magie lehren.
+	translation.ch:Bring üs die goldige Cherzeständär und ich wird do meh vo üserä Magie biibringe.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [27] NPC Node
+	tag:27
+	# triggers: 
+	trigger:DL:removeItem("qe_divinecandleholder", 3)
+	trigger:DL:changeQuestState("cathedral_thief", "completed")
+	# translation: 
+	translation.tag:DL_Vincent_CathedralFinished
+	translation.en:Well done. Taking them when everyone else was distracted was a well-thought-out idea, wasn't it.
+	translation.de:Gut gemacht. Sie dann zu nehmen, während alle anderen abgelenkt waren, war eine gut durchdachte Idee, nicht wahr.
+	translation.ch:Guet gmacht. Si dänn z'neh wenn alli andäre abglenkt sind isch scho e saumässig gueti Idee gsi, gäll.
+	[
+		# Link node, tag is next tag
+		tag:28
+	]
+}
+{1
+	# [28] NPC Node
+	tag:28
+	# triggers: 
+	trigger:DL:addReputationProgress("thief", 10)
+	trigger:DL:addItem("sp_invisibility", 1)
+	# translation: 
+	translation.tag:DL_Vincent_CathedralFinished2
+	translation.en:You've shown me that you are able to use our magic. Take this scroll as a reward and learn how to be one with the shadows.
+	translation.de:Du hast mir gezeigt, dass du fähig bist, unsere Magie zu benutzen. Nimm diese Spruchrolle als Belohnung und lerne, wie man eins mit den Schatten wird.
+	translation.ch:Du häsch mo zeigt, dassd fähig bisch, üsi Magie z'bruuchä. Nimm die Schriftrolle als Belohnig und lärn, wieme eis mit dä Schattä wird.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{3
+	# [20] Cendric Node
+	tag:20
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Cendric_CompleteLloydsPlan
+	translation.en:... Some "V." is abducting mages. Lloyd is trying to find out who that is.
+	translation.de:... Ein gewisser "V." entführt Magier. Lloyd versucht herauszufinden, wer das ist.
+	translation.ch:... En gwüsse "V." entführt Magier. De Lloyd probiert usezfinde, wer das isch.
+	[
+		# Link node, tag is next tag
+		tag:29
+	]
+}
+{1
+	# [29] NPC Node
+	tag:29
+	# triggers: 
+	trigger:DL:changeQuestState("lloyds_plan_thief", "completed")
+	trigger:DL:addReputationProgress("thief", 5)
+	# translation: 
+	translation.tag:DL_Vincent_CompleteLloydsPlan
+	translation.en:Some "V.", eh. (Grins) Well, it's not me, I can assure you that. Thank you for the report.
+	translation.de:Ein "V.", he. (Grinst) Nun, ich bin es nicht, das kann ich dir sagen. Danke für den Bericht.
+	translation.ch:En "V.", hä. (Grinst) Ich bis abo nöd, das chani dir sege. Danke für dä Bricht.
+	[
+		# Link node, tag is next tag
+		tag:30
+	]
+}
+{1
+	# [30] NPC Node
+	tag:30
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_CompleteLloydsPlan2
+	translation.en:We'll be a lot more vigilant now. But I'm now really worried about Koray, Nuray's brother.
+	translation.de:Wir werden nun um einiges wachsamer sein. Aber ich mache mir nun wirklich Sorgen um Koray, Nuray's Bruder.
+	translation.ch:Mir werdäd um einiges wachsamer sii. Ich mach mo ez echt chli Sorgä um dä Koray, dä Nuray ihre Brüedor.
+	[
+		# Link node, tag is next tag
+		tag:31
+	]
+}
+{1
+	# [31] NPC Node
+	tag:31
+	# triggers: 
+	trigger:DL:changeQuestState("missing_koray", "started")
+	# translation: 
+	translation.tag:DL_Vincent_CompleteLloydsPlan3
+	translation.en:He went to the marshlands recently. If you see him, tell Nuray.
+	translation.de:Er ist kürzlich ins Sumpfland gegangen. Berichte Nuray davon, falls du ihn sehen solltest.
+	translation.ch:Er isch letschti is Sumpfland gangä. Verzell doch dä Nuray dävo, fallsen gse sötsch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [34] NPC Node
+	tag:34
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_YashaStart
+	translation.en:Yes, actually I do have one for you. A dangerous one, indeed...
+	translation.de:Ja, ich habe tatsächlich einen für dich. Allerdings ein ziemlich gefährlicher...
+	translation.ch:Jo, ich han würkli eine für dich. Allerdings en zimli gföhrlichä...
+	[
+		# Link node, tag is next tag
+		tag:37
+	]
+}
+{1
+	# [37] NPC Node
+	tag:37
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_YashaStart2
+	translation.en:Listen. There's an abandoned temple in the Highlands of Admantris, and they say a demon is haunting it.
+	translation.de:Hör zu. Es gibt einen verlassenen Tempel im Hochland von Admantris und man erzählt sich, ein Dämon treibe dort sein Unwesen.
+	translation.ch:Los. Es git en verlassenä Tämpel im Hochland vo Admantris und mä verzellt sich, en Dämon tribt döt sis Unwese.
+	[
+		# Link node, tag is next tag
+		tag:38
+	]
+}
+{1
+	# [38] NPC Node
+	tag:38
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_YashaStart3
+	translation.en:But we also know of a powerful magical stone, the "heart of thunder", which is hidden there.
+	translation.de:Aber wir wissen auch von einem mächtigen magischen Stein, dem "Donnerherz", das dort versteckt sein soll.
+	translation.ch:Abo mir hend au vomäne mächtigä magischä Stei ghört, em "Donnerhärz", wo döt versteckt sii sött.
+	[
+		# Link node, tag is next tag
+		tag:39
+	]
+}
+{1
+	# [39] NPC Node
+	tag:39
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_YashaStart4
+	translation.en:It is probably heavily guarded by warden spells that can kill you on sight. But the loot is worth it!
+	translation.de:Er ist wahrscheinlich schwer bewacht von Wächterzaubern, die dich sofort töten, wenn sie dich sehen. Doch die Beute lohnt sich!
+	translation.ch:Er isch wohrschinli ufs übelsti bewacht vo Wächterzaubor, wo dich sofort töted, wenn si dich gsehnd. Abo du, es lohnt sich!
+	[
+		# Link node, tag is next tag
+		tag:40
+	]
+}
+{1
+	# [40] NPC Node
+	tag:40
+	# triggers: 
+	trigger:DL:changeQuestState("yasha_thief", "started")
+	# translation: 
+	translation.tag:DL_Vincent_YashaStart5
+	translation.en:Using some invisibility, you should get through anyway. Good luck!
+	translation.de:Mit ein wenig Unsichtbarkeit solltest du irgendwie durchkommen. Viel Glück!
+	translation.ch:Mit bitz Unsichtbarkeit sötsch scho irgendwie durecho. Viel Glück!
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [35] NPC Node
+	tag:35
+	# triggers: 
+	trigger:DL:removeItem("qe_thunderheart", 1)
+	# translation: 
+	translation.tag:DL_Vincent_YashaComplete
+	translation.en:(Grins) Well, I hope you didn't get in trouble getting this one.
+	translation.de:(Grinst) Ich hoffe bloss, du bist nicht in Schwierigkeiten geraten, als du das holen musstest.
+	translation.ch:(Grinst) Ich hoff eifach, du häsch kei Problem übercho, das z'holä.
+	[
+		# Link node, tag is next tag
+		tag:36
+	]
+}
+{1
+	# [36] NPC Node
+	tag:36
+	# triggers: 
+	trigger:DL:changeQuestState("yasha_thief", "completed")
+	trigger:DL:addReputationProgress("thief", 10)
+	# translation: 
+	translation.tag:DL_Vincent_YashaComplete2
+	translation.en:I always knew that you'd make great thief - eh, twilight mage. Enjoy your newly gained powers.
+	translation.de:Ich wusste schon immer, dass aus dir mal ein guter Dieb - eh, Dämmerungsmagier wird. Viel Spass mit deinen neuen Fähigkeiten.
+	translation.ch:Ich ha scho immer gwüsst, dass us dir mol en hammo Dieb - äh, Dämmerigsmagier wird. Vil Spass mit dine neue Fähigkeite.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{3
+	# [41] Cendric Node
+	tag:41
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Cendric_VeliusFound
+	translation.en:He was abducted by some mage named Velius alongside with some other mages. I have to go to the crypt in Gandria and find out more.
+	translation.de:Er wurde von einem Magier namens Velius zusammen mit anderen Magiern entführt. Ich muss in die Krypta von Gandria und mehr herausfinden.
+	translation.ch:Er isch vomne Magier namens Velius zeme mit andere Magier entführt worde. Ich mu id Krypta vo Gandria und me usefinde.
+	[
+		# Link node, tag is next tag
+		tag:42
+	]
+}
+{1
+	# [42] NPC Node
+	tag:42
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_vincent3", "velius_found")
+	# translation: 
+	translation.tag:DL_Vincent_VeliusFound
+	translation.en:Velius? I know a mage named Velius. We did business with him. 
+	translation.de:Velius? Ich kenne einen Magier namens Velius. Wir haben schon Geschäfte mit ihm gemacht.
+	translation.ch:Velius? Ich kenn en Magior namens Velius. Mo hend scho Gschäftli mitem gmacht.
+	[
+		# Link node, tag is next tag
+		tag:43
+	]
+}
+{1
+	# [43] NPC Node
+	tag:43
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_VeliusFound2
+	translation.en:He often wanted potions... or rumours. Still, he's not the kind of guy who abducts people.
+	translation.de:Er wollte meistens Tränke... oder Gerüchte. Aber er ist nicht so der Typ, um Leute zu entführen.
+	translation.ch:Er hät ämel Tränk wöle... odor Grüchtli. Abo er isch ez echt nöd so dä Typ wo Lüüt entfüerä tuet.
+	[
+		# Link node, tag is next tag
+		tag:44
+	]
+}
+{1
+	# [44] NPC Node
+	tag:44
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Vincent_VeliusFound3
+	translation.en:But you should definitely follow the trace and go into that crypt. Good luck!
+	translation.de:Aber du solltest definitiv dieser Spur folgen und in die Krypta gehen. Viel Glück!
+	translation.ch:Abo du sötsch definitiv däre Spur folge und id Krypta go. Viel Glück!
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [17] Choice Node
+	tag:17
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}

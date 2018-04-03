@@ -1,0 +1,480 @@
+# dia file for dialogue for npc: npc_jeremy
+
+npc.id:npc_jeremy
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:DL:isConditionFulfilled("npc_jeremy", "who_are_you") == DL:isConditionFulfilled("npc_jeremy", "buddy_guy")
+	]
+	[
+		# Link node, tag is next tag
+		tag:9
+	]
+}
+{2
+	# [1] Choice Node
+	tag:1
+	[
+		# Link node, tag is next tag
+		tag:2
+		condition:DL:isQuestState("stevens_helmet", "started") and not DL:isConditionFulfilled("npc_jeremy", "helmet")
+		# translation: 
+		translation.tag:DL_Choice_Helmet
+		translation.en:Do you know something about the helmet of a certain paladin?
+		translation.de:Weisst du etwas über den Helm eines gewissen Paladins?
+		translation.ch:Weisch du öppis über de Helm vomne gwüsse Paladin?
+	]
+	[
+		# Link node, tag is next tag
+		tag:7
+		condition:DL:isQuestState("leeroy_chicken", "started") and DL:isConditionFulfilled("npc_helena","leeroy_chicken") and not DL:isConditionFulfilled("npc_jeremy", "leeroy_chicken")
+		# translation: 
+		translation.tag:DL_Choice_LeeroyChicken
+		translation.en:Helena wants you to leave her inn. Get out.
+		translation.de:Helena will, dass ihr ihre Taverne verlasst. Raus mit euch.
+		translation.ch:D'Helena wett eu nüm do ha. Ihr sötted besser go.
+	]
+	[
+		# Link node, tag is next tag
+		tag:3
+		condition:not DL:isConditionFulfilled("npc_jeremy", "who_are_you")
+		# translation: 
+		translation.tag:DL_Choice_WhoAreYou
+		translation.en:Who are you guys?
+		translation.de:Wer seid ihr?
+		translation.ch:Wer sind ihr Lütlis?
+	]
+	[
+		# Link node, tag is next tag
+		tag:16
+		condition:not DL:isConditionFulfilled("npc_jeremy", "confront_inina") and DL:isQuestState("ininas_abduction", "started")
+		# translation: 
+		translation.tag:DL_Choice_ConfrontInina
+		translation.en:(Confront Jeremy about Inina)
+		translation.de:(Jeremy auf Inina ansprechen)
+		translation.ch:(De Jeremy uf d'Inina aspreche)
+	]
+	[
+		# Link node, tag is next tag
+		tag:22
+		condition:DL:isConditionFulfilled("npc_jeremy", "confront_inina") and not DL:isConditionFulfilled("npc_jeremy", "confront_inina2")
+		# translation: 
+		translation.tag:DL_Choice_WontLeave
+		translation.en:I won't leave. Where have you taken her?
+		translation.de:Ich werde nicht gehen. Wo habt ihr sie hingebracht?
+		translation.ch:Ich wird nid go. Wo hender si hibrocht?
+	]
+	[
+		# Link node, tag is next tag
+		tag:23
+		condition:DL:isConditionFulfilled("npc_jeremy", "confront_inina2") and not DL:isConditionFulfilled("boss", "BossMercenaries")
+		# translation: 
+		translation.tag:DL_Choice_AttackBoss
+		translation.en:I have to beat it out of you then. [ATTACK]
+		translation.de:Ich muss es wohl aus euch herausprügeln. [ANGREIFEN]
+		translation.ch:Ich mueses glaub us eu useprügle. [AAGRIFE]
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [2] NPC Node
+	tag:2
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jeremy_Helmet
+	translation.en:Oh, you mean that pathetic paladin that gambled away everything he had? I'll have to disappoint you, we don't have that helmet anymore.
+	translation.de:Oh, du meinst diesen erbärmlichen Paladin, der alles verspielt hat? Ich muss dich enttäuschen, diesen Helm haben wir nicht mehr.
+	translation.ch:Oh, du meinsch de erbärmlich Paladin wo alles verzockt het? Da muni di enttüsche, de Helm hämmer nümme.
+	[
+		# Link node, tag is next tag
+		tag:8
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	trigger:DL:addQuestDescription("stephens_helmet", 1)
+	trigger:DL:addConditionProgress("npc_jeremy", "helmet")
+	# translation: 
+	translation.tag:DL_Jeremy_Helmet2
+	translation.en:We lost it somewhere in the sewers of Gandria. Good luck finding it there, between the nasty rats and ooze...
+	translation.de:Wir haben ihn irgendwo in der Kanalisation von Gandria verloren. Viel Spass, wenn du ihn dort finden willst, zwischen all den hässlichen Ratten und Schleimen.
+	translation.ch:Mir henden irgendwo ide Kanalisation vo Gandria verlore. Viel Spass wenden det finde wetsch, zwüsched all de grusige Ratte und Schleimlis.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jeremy_LeeroyChicken
+	translation.en:(Chuckles) And why exactly should we leave? We like it here.
+	translation.de:(Lacht) Und wieso genau sollten wir gehen? Uns gefällt es hier.
+	translation.ch:(Gigglet) Und wieso genau söttemer go? Es gfallt üs do.
+	[
+		# Link node, tag is next tag
+		tag:15
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "leeroy_chicken")
+	trigger:DL:addQuestDescription("leeroy_chicken", 2)
+	# translation: 
+	translation.tag:DL_Jeremy_LeeroyChicken2
+	translation.en:You would have to have a really good reason to make us leave - and you don't seem to have one. Get lost, kid.
+	translation.de:Du solltest einen wirklich guten Grund für uns haben, wenn wir hier raus sollen - und den scheinst du nicht zu haben. Geh jetzt besser, Kleiner.
+	translation.ch:Du söttsch en würkli guete Grund für üs ha, dasmer vo do weg gönd - und de hesch definitiv nid. Gang ez besser, Chliine.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "who_are_you")
+	# translation: 
+	translation.tag:DL_Jeremy_WhoAreYou
+	translation.en:Just some mercenaries. None of your business, buddy.
+	translation.de:Nur ein paar Söldner. Geht dich nichts an, Kumpel.
+	translation.ch:Bloss es paar Söldner. Gaht dich nüt ah, Kolleg.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [16] Choice Node
+	tag:16
+	[
+		# Link node, tag is next tag
+		tag:17
+		condition:not DL:isConditionFulfilled("npc_jeremy", "confront_direct")
+		# translation: 
+		translation.tag:DL_Choice_ConfrontDirect
+		translation.en:Have you heard, the High Priestess Inina was abducted!
+		translation.de:Habt ihr's schon gehört? Die Hohepriesterin Inina wurde entführt!
+		translation.ch:Henders scho ghört? D'Hohepriesterin Inina isch entführt worde!
+	]
+	[
+		# Link node, tag is next tag
+		tag:18
+		condition:not DL:isConditionFulfilled("npc_jeremy", "confront_nice")
+		# translation: 
+		translation.tag:DL_Choice_ConfrontNicely
+		translation.en:Have you seen the High Priestess Inina lately?
+		translation.de:Habt ihr die Hohepriesterin Inina in letzter Zeit gesehen?
+		translation.ch:Hend ihr d'Hohepriesterin Inina letzins gse?
+	]
+	[
+		# Link node, tag is next tag
+		tag:19
+		# translation: 
+		translation.tag:DL_Choice_ConfrontHarsh
+		translation.en:We know that you abducted Inina. Confess!
+		translation.de:Wir wissen, dass ihr Inina entführt habt. Gesteht!
+		translation.ch:Mir wüssed, dass ihr d'Inina entführt hend. Gends zue!
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "confront_direct")
+	# translation: 
+	translation.tag:DL_Jeremy_ConfrontDirect
+	translation.en:Interesting. And why are you telling me this?
+	translation.de:Interessant. Und wieso erzählst du mir das?
+	translation.ch:Interessant. Und wieso verzellsch mer das?
+	[
+		# Link node, tag is next tag
+		tag:20
+	]
+}
+{2
+	# [20] Choice Node
+	tag:20
+	[
+		# Link node, tag is next tag
+		tag:21
+		# translation: 
+		translation.tag:DL_Choice_ConfrontDirect1
+		translation.en:We suspect you have something to do with her abduction.
+		translation.de:Wir vermuten, ihr habt etwas mit ihrer Entführung zu tun.
+		translation.ch:Mir glaubed ihr hend öppis mit ihrere Entführig z'tue.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:DL_Choice_Nevermind
+		translation.en:Eh, never mind...
+		translation.de:Egal, vergiss es...
+		translation.ch:Egal, vergisses...
+	]
+}
+{1
+	# [21] NPC Node
+	tag:21
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "confront_inina")
+	# translation: 
+	translation.tag:DL_Jeremy_ConfrontHarsh
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [18] NPC Node
+	tag:18
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "confront_nice")
+	# translation: 
+	translation.tag:DL_Jeremy_ConfrontNicely
+	translation.en:No, we haven't.
+	translation.de:Nein, haben wir nicht.
+	translation.ch:Nei, hemmer nid.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [19] NPC Node
+	tag:19
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "confront_inina")
+	# translation: 
+	translation.tag:DL_Jeremy_ConfrontHarsh
+	translation.en:(Dangerously quiet) You don't have any evidence. Mind your own business. Shove off.
+	translation.de:(Gefährlich leise) Du hast keine Beweise. Kümmer dich besser um deinen Kram. Verschwinde.
+	translation.ch:(Gföhrlich liislig) Du hesch ke Bewiis. Gaht dich au nüt ah. Verschwind.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [22] NPC Node
+	tag:22
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "confront_inina2")
+	# translation: 
+	translation.tag:DL_Jeremy_WontLeave
+	translation.en:You're skating on thin ice now. I won't warn you again. Go.
+	translation.de:Du bewegst dich auf dünnem Eis. Ich warne dich nicht nochmal. Geh.
+	translation.ch:Du bewegsch dich uf dünnem Iis. Ich warn dich nid nomol. Gang.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [23] NPC Node
+	tag:23
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jeremy_AttackBoss
+	translation.en:(Sighs) You won't listen, eh? Roy, Morgiana! Let's teach him a lesson.
+	translation.de:(Seufzt) Du willst einfach nicht hören, was? Roy, Morgiana! Erteilen wir ihm eine Lektion.
+	translation.ch:(Süüfzt) Du begriifsches eifach nid, he? Roy, Morgiana! Zeigemer ihm wo de Bartli de Most holt!
+	[
+		# Link node, tag is next tag
+		tag:24
+	]
+}
+{1
+	# [24] NPC Node
+	tag:24
+	# triggers: 
+	trigger:DL:startLevel("res/level/boss_mercenaries/boss_mercenaries.tmx", 350, 410)
+	# translation: 
+	translation.tag:
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [9] Choice Node
+	tag:9
+	[
+		# Link node, tag is next tag
+		tag:10
+		# translation: 
+		translation.tag:DL_Choice_NotYourBuddy
+		translation.en:I'm not your buddy, guy.
+		translation.de:Ich bin nicht dein Kumpel, Alter.
+		translation.ch:Ich bi nid din Kolleg, Alte.
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		# translation: 
+		translation.tag:DL_Choice_Okay
+		translation.en:Okay...
+		translation.de:Okay...
+		translation.ch:Okay...
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	trigger:DL:notifyAchievement("ACH_CANADIAN_LOOP", "loop")
+	# translation: 
+	translation.tag:DL_Jeremy_NotYourGuy
+	translation.en:I'm not your guy, friend.
+	translation.de:Ich bin nicht dein Alter, Freund.
+	translation.ch:Ich bi nid din Alte, Homie.
+	[
+		# Link node, tag is next tag
+		tag:12
+	]
+}
+{2
+	# [12] Choice Node
+	tag:12
+	[
+		# Link node, tag is next tag
+		tag:13
+		# translation: 
+		translation.tag:DL_Choice_NotYourFriend
+		translation.en:I'm not your friend, buddy.
+		translation.de:Ich bin nicht dein Freund, Kumpel.
+		translation.ch:Ich bi nid din Homie, Kolleg.
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		# translation: 
+		translation.tag:DL_Choice_Okay
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	trigger:DL:notifyAchievement("ACH_CANADIAN_LOOP", "loop")
+	# translation: 
+	translation.tag:DL_Choice_NotYourBuddy
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:4
+	]
+}
+{2
+	# [4] Choice Node
+	tag:4
+	[
+		# Link node, tag is next tag
+		tag:6
+		# translation: 
+		translation.tag:DL_Jeremy_NotYourGuy
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+	[
+		# Link node, tag is next tag
+		tag:5
+		# translation: 
+		translation.tag:DL_Choice_Okay
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:notifyAchievement("ACH_CANADIAN_LOOP", "loop")
+	# translation: 
+	translation.tag:DL_Choice_NotYourFriend
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "buddy_guy")
+	# translation: 
+	translation.tag:DL_Jeremy_Nothing
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "buddy_guy")
+	# translation: 
+	translation.tag:DL_Jeremy_Nothing
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jeremy", "buddy_guy")
+	# translation: 
+	translation.tag:DL_Jeremy_Nothing
+	translation.en:...
+	translation.de:...
+	translation.ch:...
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}

@@ -1,0 +1,988 @@
+# dia file for dialogue for npc: npc_syrah
+
+npc.id:npc_syrah
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_syrah", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:18
+		condition:DL:hasItem("qe_invisrecipe", 1) and not DL:isConditionFulfilled("npc_syrah", "invis_recipe")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "talked")
+	# translation: 
+	translation.tag:DL_Syrah_Greeting
+	translation.en:Well hello there! You look like you could use some potions made by the infamous alchemist Syrah.
+	translation.de:Na hallo! Du siehst aus als könntest du ein paar Tränke von der berühmt-berüchtigten Alchemistin Syrah gebrauchen.
+	translation.ch:Jo sali! Du gsesch us als chönntisch du es paar Tränk v dr berüemt-berüchtigte Alchemischtin Syrah bruuche.
+	[
+		# Link node, tag is next tag
+		tag:50
+	]
+}
+{1
+	# [50] NPC Node
+	tag:50
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_Greeting2
+	translation.en:A love potion or a hair dye - there's nearly nothing I'm not capable of brewing.
+	translation.de:Ob Liebestrank oder Haarfarbe - es gibt fast nichts, was ich nicht zusammenbrauen könnte.
+	translation.ch:Ob Liebestrank oder Hoorfarb - es git fascht nüt woni nid chönt zämmämischlä.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [18] NPC Node
+	tag:18
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_InvisRecipe
+	translation.en:Oh, hello. There's a certain recipe missing from my basement. Do you know something about it?
+	translation.de:Oh, hallo. Sag mal... Es fehlt ein bestimmtes Rezept aus meinem Keller. Weisst du etwas über diese Sache?
+	translation.ch:Oh hallo. Du, sag mol... Es fehlt es bestimmts Rezept us mim Käller. Weisch du öppis über die Sach?
+	[
+		# Link node, tag is next tag
+		tag:19
+	]
+}
+{2
+	# [19] Choice Node
+	tag:19
+	[
+		# Link node, tag is next tag
+		tag:20
+		# translation: 
+		translation.tag:DL_Choice_IBroughtItBack
+		translation.en:Yes. I got it back for you. (Give the recipe)
+		translation.de:Ja. Ich hab es dir zurück gebracht. (Rezept geben)
+		translation.ch:Ja. Ich has der zrugg bracht. (Rezept gä)
+	]
+	[
+		# Link node, tag is next tag
+		tag:21
+		# translation: 
+		translation.tag:DL_Choice_IKnowNothing
+		translation.en:No, sorry.
+		translation.de:Nein, sorry.
+		translation.ch:Nei, sorry.
+	]
+}
+{1
+	# [20] NPC Node
+	tag:20
+	# triggers: 
+	trigger:DL:removeItem("qe_invisrecipe", 1)
+	trigger:DL:addReputationProgress("necromancer", 5)
+	trigger:DL:changeQuestState("invis_recipe", "failed")
+	trigger:DL:addConditionProgress("npc_syrah", "invis_recipe")
+	# translation: 
+	translation.tag:DL_Syrah_IBroughtItBack
+	translation.en:Wow, thank you. You know, that really means a lot to me. I won't ask where you got that though. (Winks)
+	translation.de:Wow, danke. Weisst du, das bedeutet mir wirklich ne Menge. Ich frag gar nicht erst, wie du das geschafft hast. (Zwinkert)
+	translation.ch:Wow, merci. Weisch, das bedütet mr wirklig viel. Ich froog gar nid erscht, wied da übercho hesch. (Zwinkeret)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [21] NPC Node
+	tag:21
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "invis_recipe")
+	# translation: 
+	translation.tag:DL_Syrah_IKnowNothing
+	translation.en:What a pity.
+	translation.de:Schade.
+	translation.ch:Schad.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:3
+		condition:DL:isQuestState("the_mark", "started") and DL:isQuestState("antimagic_crystal", "void")
+		# translation: 
+		translation.tag:DL_Choice_Mark
+		translation.en:Can you remove this curse? (Show the mark)
+		translation.de:Kannst du diesen Fluch aufheben? (Mal zeigen)
+		translation.ch:Chasch du de Fluech wegmache? (Zeiche zeige)
+	]
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:DL:isQuestState("questionable_method", "started") and not DL:isConditionFulfilled("npc_syrah", "sewers")
+		# translation: 
+		translation.tag:DL_Choice_Sewers
+		translation.en:How can I get to the sewers?
+		translation.de:Wie komme ich in die Kanalisation?
+		translation.ch:We chumi id Kanalisation?
+	]
+	[
+		# Link node, tag is next tag
+		tag:7
+		condition:DL:isQuestState("questionable_method", "started") and DL:isQuestComplete("questionable_method")
+		# translation: 
+		translation.tag:DL_Choice_BrewQuestDone
+		translation.en:I got your ingredients. (Give ingredients)
+		translation.de:Ich habe deine Zutaten. (Zutaten geben)
+		translation.ch:Ich ha dini Zuetate. (Zuetate gä)
+	]
+	[
+		# Link node, tag is next tag
+		tag:48
+		condition:DL:isQuestState("antimagic_crystal", "started") and DL:hasItem("eq_antimagicpendant", 1) and not DL:isConditionFulfilled("npc_syrah", "antimagic_pendant")
+		# translation: 
+		translation.tag:DL_Choice_AntimagicPendant
+		translation.en:I got this anti-magic pendant here, would this work?
+		translation.de:Ich habe diesen antimagischen Anhänger hier, würde das funktionieren?
+		translation.ch:Ich ha de antimagisch Ahänger do, wür das funktioniere?
+	]
+	[
+		# Link node, tag is next tag
+		tag:22
+		condition:(DL:isQuestState("antimagic_crystal", "started") and DL:isQuestComplete("antimagic_crystal")) or (DL:isConditionFulfilled("npc_syrah", "helper1") and not DL:isConditionFulfilled("npc_syrah", "helper2"))
+		# translation: 
+		translation.tag:DL_Choice_MarkQuestDone
+		translation.en:I got what you wanted. (Give crystal)
+		translation.de:Ich habe, was du brauchst. (Kristall geben)
+		translation.ch:Ich han was du bruchsch. (Kristall gä)
+	]
+	[
+		# Link node, tag is next tag
+		tag:31
+		condition:DL:isQuestState("antimagic_crystal", "completed") and DL:isQuestState("favor_for_a_favor", "void")
+		# translation: 
+		translation.tag:DL_Choice_FavourQuestStart
+		translation.en:What kind of favour should that be?
+		translation.de:Was für ein Gefallen soll das sein?
+		translation.ch:Was füren Gfalle söl das si?
+	]
+	[
+		# Link node, tag is next tag
+		tag:35
+		condition:DL:isQuestState("favor_for_a_favor", "started") and DL:isQuestComplete("favor_for_a_favor")
+		# translation: 
+		translation.tag:DL_Choice_CompleteFavor
+		translation.en:I got the cinderbloom for you.
+		translation.de:Ich habe die Aschenblüte für dich.
+		translation.ch:Ich han d'Zündelblueme für dich.
+	]
+	[
+		# Link node, tag is next tag
+		tag:36
+		condition:DL:isConditionFulfilled("npc_luiz", "talked") and not DL:isConditionFulfilled("npc_syrah", "necromancers_found")
+		# translation: 
+		translation.tag:DL_Choice_NecromancersFound
+		translation.en:So you're a necromancer.
+		translation.de:Du bist also eine Nekromantin.
+		translation.ch:Du bisch also e Nekromantin.
+	]
+	[
+		# Link node, tag is next tag
+		tag:37
+		condition:not DL:isConditionFulfilled("npc_syrah", "thea") and DL:isQuestState("theas_dream", "started")
+		# translation: 
+		translation.tag:DL_Choice_Thea
+		translation.en:Are you looking for an apprentice?
+		translation.de:Suchst du einen Lehrling?
+		translation.ch:Suechsch en Lehrling?
+	]
+	[
+		# Link node, tag is next tag
+		tag:40
+		condition:not DL:isConditionFulfilled("npc_syrah", "sack")
+		# translation: 
+		translation.tag:DL_Choice_Sack
+		translation.en:Can I get some hair dye from you?
+		translation.de:Kann ich dann ein Haarfärbemittel haben?
+		translation.ch:Chani denn es Hoorfärbemittel ha?
+	]
+	[
+		# Link node, tag is next tag
+		tag:8
+		condition:DL:isQuestState("questionable_method", "completed")
+		# translation: 
+		translation.tag:DL_Choice_CanYouBrew
+		translation.en:Can you brew something for me?
+		translation.de:Kannst du mir etwas brauen?
+		translation.ch:Chaschmer öppis zemebraue?
+	]
+	[
+		# Link node, tag is next tag
+		tag:42
+		condition:DL:isQuestState("questionable_method", "void")
+		# translation: 
+		translation.tag:DL_Choice_CanYouBrew
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		# translation: 
+		translation.tag:DL_Choice_Trade
+		translation.en:Show me your potions.
+		translation.de:Zeig mir deine Tränke.
+		translation.ch:Zeig mer dini Tränk.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_Mark
+	translation.en:(Syrah eyes the mark carefully) Hm. Definitely a tracking curse. But it's one of the strongest I've ever seen.
+	translation.de:(Syrah betrachtet das Mal sorgfältig) Hm. Ganz klar ein Aufspür-Zauber. Aber einer der stärksten, die ich je gesehen habe.
+	translation.ch:(Syrah luegt s'Zeiche vorsichtig ah) Hm. Ganz klar e Uffspür-Zauber. Aber eine vode stärkschtä woni je gseh ha.
+	[
+		# Link node, tag is next tag
+		tag:4
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_Mark2
+	translation.en:That's not going to be easy. If I had an anti-magic crystal, I could try to remove or at least weaken the curse.
+	translation.de:Das wird nicht einfach. Wenn ich einen antimagischen Kristall hätte, könnte ich versuchen, den Fluch zu entfernen oder zumindest zu schwächen.
+	translation.ch:Das wird nid eifach. Wenni en antimagische Kristall hett, chani versueche, dr Fluech z'entferne oder mindestens z'schwäche.
+	[
+		# Link node, tag is next tag
+		tag:5
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:addQuestDescription("the_mark", 3)
+	# translation: 
+	translation.tag:DL_Syrah_Mark3
+	translation.en:But it's not easy to get such a crystal. I know that the clerics use them to restrain the magic of their prisoners.
+	translation.de:Aber es ist nicht einfach, an einen solchen Kristall zu kommen. Ich weiss, dass die Kleriker sie verwenden, um die Magie ihrer Gefangenen im Zaum zu halten.
+	translation.ch:Aber es isch nid eifach, a sonen Kristall z'cho. Ich weiss, dass d'Kleriker so Kristall bruched, zum d'Magie vo ihrne Gfangene im Zaum zhalte.
+	[
+		# Link node, tag is next tag
+		tag:46
+	]
+}
+{1
+	# [46] NPC Node
+	tag:46
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_Mark4
+	translation.en:I'm pretty sure they have one in their tower. Hm... but it is locked.
+	translation.de:Ich bin mir ziemlich sicher, dass sie einen in ihrem Turm haben. Hm... aber der ist verschlossen.
+	translation.ch:Ich bimer zimli sicher, dass si ein i ihrem Turm hend. Hm. Aber de isch vrschlosse.
+	[
+		# Link node, tag is next tag
+		tag:47
+	]
+}
+{1
+	# [47] NPC Node
+	tag:47
+	# triggers: 
+	trigger:DL:changeQuestState("antimagic_crystal", "started")
+	# translation: 
+	translation.tag:DL_Syrah_Mark5
+	translation.en:You could try to steal the tower key from a paladin... or - if that's not your way of solving problems - just buy a crystal.
+	translation.de:Du könntest versuchen, den Turmschlüssel von einem Paladin zu stehlen... oder - wenn das nicht deine Art ist, kannst du den Kristall vermutlich auch kaufen.
+	translation.ch:Du chöntsch probiere, de Turmschlüssel vomne Paladin z'chlaue... oder - wenn das nid so dini Art isch, chasch wahrschinli au en Kristall chaufe.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "sewers")
+	# translation: 
+	translation.tag:DL_Syrah_Sewers
+	translation.en:Some houses have a basement with a connection to the sewers. I think there's also a door near the harbour that leads down.
+	translation.de:Ein paar Häuser haben in ihrem Keller eine Verbindung zur Kanalisation. Ich glaube, es gibt auch eine Türe in der Nähe des Hafens, die dort runter führt.
+	translation.ch:Ä paar Hüüser hei in ihrem Käller e Verbindig zu dr Kanalisation. I glaub es git au e Düüre in dr Nöchi vom Hafe wo dört aabä füehrt.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	trigger:DL:changeQuestState("questionable_method", "completed")
+	trigger:DL:addReputationProgress("necromancer", 5)
+	trigger:DL:removeItem("qe_fireratheart", 1)
+	trigger:DL:removeItem("qe_batblood", 2)
+	trigger:DL:removeItem("qe_bone", 3)
+	# translation: 
+	translation.tag:DL_Syrah_BrewQuestDone
+	translation.en:Thank you so much, that's perfect! I'll brew potions for you now if you bring me some herbs.
+	translation.de:Vielen Dank, das ist perfekt! Ich werde dir nun Tränke brauen, wenn du mir Kräuter bringst.
+	translation.ch:Jä danke, das isch perfekt! Ich wirde der jetz Tränkli braue, wennd mer d'Chrütli drzue bringsch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [48] NPC Node
+	tag:48
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_AntimagicPendant
+	translation.en:That's an interesting pendant you got there. It's strong, but not strong enough to remove your curse, I'm afraid.
+	translation.de:Das ist ein interessanter Anhänger, den du da hast. Er ist mächtig, aber es reicht nicht, um deinen Fluch aufzuheben.
+	translation.ch:Das isch en interessante Ahänger, wod da hesch. Er isch mächtig, aber nid mächtig gnueg, zum din Fluech ufhebe.
+	[
+		# Link node, tag is next tag
+		tag:49
+	]
+}
+{1
+	# [49] NPC Node
+	tag:49
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "antimagic_pendant")
+	# translation: 
+	translation.tag:DL_Syrah_AntimagicPendant2
+	translation.en:We need a bigger crystal.
+	translation.de:Wir brauchen einen grösseren Kristall.
+	translation.ch:Mer bruched en grössere Kristall.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [22] NPC Node
+	tag:22
+	# triggers: 
+	trigger:DL:changeQuestState("antimagic_crystal", "completed")
+	trigger:DL:addReputationProgress("necromancer", 5)
+	trigger:DL:removeItem("qe_antimagiccrystal", 1)
+	# translation: 
+	translation.tag:DL_Syrah_MarkQuestDone
+	translation.en:Ah, perfect. Now let's get started.
+	translation.de:Ah, perfekt. Dann lass uns anfangen.
+	translation.ch:Ah, perfekt. Denn föngemer mol ah.
+	[
+		# Link node, tag is next tag
+		tag:23
+	]
+}
+{1
+	# [23] NPC Node
+	tag:23
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_MarkQuestDone2
+	translation.en:(Syrah uses the crystal to draw a glowing circle on the floor) Come.
+	translation.de:(Syrah zeichnet mit dem Kristall ein glühender Kreis auf den Boden) Komm.
+	translation.ch:(D'Syrah zeichnet mitem Kristall en glüehende Chreis uf de Bode) Chumm.
+	[
+		# Link node, tag is next tag
+		tag:24
+	]
+}
+{2
+	# [24] Choice Node
+	tag:24
+	[
+		# Link node, tag is next tag
+		tag:25
+		# translation: 
+		translation.tag:DL_Choice_OkayMark
+		translation.en:Okay...
+		translation.de:Okay...
+		translation.ch:Okay...
+	]
+	[
+		# Link node, tag is next tag
+		tag:26
+		condition:not DL:isConditionFulfilled("npc_syrah", "come_here")
+		# translation: 
+		translation.tag:DL_Choice_NotOkayMark
+		translation.en:I'm not sure whether this is a good idea.
+		translation.de:Ich weiss nicht, ob das eine gute Idee ist.
+		translation.ch:Ich weiss nid ob da so e gueti Idee isch.
+	]
+}
+{1
+	# [25] NPC Node
+	tag:25
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "helper2")
+	# translation: 
+	translation.tag:DL_Syrah_RelieveCurse
+	translation.en:(Syrah grabs your arm and drags you into the circle.)
+	translation.de:(Syrah packt dich am Arm und zieht dich in den Kreis.)
+	translation.ch:(D'Syrah packt di am Arm und zieht di in Kreis.)
+	[
+		# Link node, tag is next tag
+		tag:27
+	]
+}
+{1
+	# [27] NPC Node
+	tag:27
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_RelieveCurse2
+	translation.en:(She takes the crystal and presses it onto the mark, while murmuring some words.)
+	translation.de:(Sie nimmt den Kristall und drückt ihn auf das Mal, während sie ein paar Worte murmelt.)
+	translation.ch:(Sie nimmt de Kristall und druckt ihn ufs Zeiche, während sie öppis murmelet.)
+	[
+		# Link node, tag is next tag
+		tag:28
+	]
+}
+{1
+	# [28] NPC Node
+	tag:28
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_RelieveCurse3
+	translation.en:See? I think it worked. I don't feel much of this strange magic anymore. 
+	translation.de:Siehst du? Ich denke, es hat funktioniert. Ich spüre nicht mehr viel von dieser seltsamen Magie.
+	translation.ch:Gsehsch. I glaub s'het klappt. I gspür nümm viel vo dere komische Magie.
+	[
+		# Link node, tag is next tag
+		tag:29
+	]
+}
+{1
+	# [29] NPC Node
+	tag:29
+	# triggers: 
+	trigger:DL:addQuestDescription("the_mark", 4)
+	trigger:DL:addConditionProgress("default", "mark_weak")
+	trigger:DL:addQuestProgress("weaken_mark", "weaken_mark")
+	# translation: 
+	translation.tag:DL_Syrah_RelieveCurse4
+	translation.en:Hm. It's still visible. You'll have to seek out who did this to you. But now you can find him before he finds you. (Giggles)
+	translation.de:Hm. Es ist immer noch sichtbar. Du solltest denjenigen ausfindig machen, der dir das angetan hat. Doch jetzt kannst du ihn finden, bevor er es tut. (Kichert)
+	translation.ch:Hm. Me gsehts immer no. Du söttsch dä sueche, wo dir das aadoo het. Und jetzt chaschen finde, bevor er s'macht. (Giigelet)
+	[
+		# Link node, tag is next tag
+		tag:30
+	]
+}
+{1
+	# [30] NPC Node
+	tag:30
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_DoMeAFavour
+	translation.en:But now, as I've done you a favour, you should do me one too, I think.
+	translation.de:Aber jetzt, wo ich dir einen Gefallen getan habe, solltest du mir auch einen tun.
+	translation.ch:Aber jetz, woni dir ä Gfalle do ha, söttsch mr au eine due.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [26] NPC Node
+	tag:26
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "come_here")
+	trigger:DL:gotoNode(24)
+	trigger:DL:addConditionProgress("npc_syrah", "helper1")
+	# translation: 
+	translation.tag:DL_Syrah_NotOkayMark2
+	translation.en:I'm only trying to help you! You want to be relieved from your curse, right? Now come here.
+	translation.de:Ich versuch doch nur, dir zu helfen! Du willst von diesem Fluch befreit werden, oder? Jetzt komm her.
+	translation.ch:I brobier doch nummä, dir z'hälfe! Du willsch doch vo dem Fluech befreit si, oder? Jetzt chumm.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [31] NPC Node
+	tag:31
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_FavourQuestStart
+	translation.en:There's a graveyard just outside the city, in the marshlands, where people are buried that were not welcome in the city - mostly criminals.
+	translation.de:Es gibt einen Friedhof im Sumpfland direkt vor der Stadt. Dort liegen die Leute begraben, die in der Stadt nicht erwünscht waren - vor allem Verbrecher.
+	translation.ch:Es git ä Friedhof im Sumpfland diräkt vor dr Stadt, wo d'Lüt begrabe si wo in dr Stadt nid willkomme gsi si - vor allem Verbrächer.
+	[
+		# Link node, tag is next tag
+		tag:32
+	]
+}
+{1
+	# [32] NPC Node
+	tag:32
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_FavourQuestStart2
+	translation.en:I need a special flower, the cinderbloom, for one of my potions. It only grows on graves of people who have died in a fire. 
+	translation.de:Ich brauche eine spezielle Blume, die Aschenblüte, aus der Krypta dort. Sie wächst nur auf den Gräbern von Leuten, die in einem Feuer umgekommen sind.
+	translation.ch:I bruch e speziells Bliemli, s'Zündelbliemli. Si waggst nur uf de Gräber vo Lüt, wo im Fyyr gstorbe si.
+	[
+		# Link node, tag is next tag
+		tag:33
+	]
+}
+{1
+	# [33] NPC Node
+	tag:33
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_FavourQuestStart3
+	translation.en:I'm sure that you can find that flower there...
+	translation.de:Ich bin mir sicher, dass du diese Blume dort finden kannst...
+	translation.ch:I bimmer sicher, dassd s'Bliemli dört finde chasch...
+	[
+		# Link node, tag is next tag
+		tag:34
+	]
+}
+{1
+	# [34] NPC Node
+	tag:34
+	# triggers: 
+	trigger:DL:changeQuestState("favor_for_a_favor", "started")
+	# translation: 
+	translation.tag:DL_Syrah_FavourQuestStart4
+	translation.en:Mages who "misuse" magic are often burnt at the stake and whatever remains will be taken to this crypt.
+	translation.de:Magier, die Magie "missbrauchen", werden meistens auf dem Scheiterhaufen verbrannt und was auch immer übrigbleibt, wird in diese Krypta geschafft.
+	translation.ch:Magier wo Magie "missbruchä" wärde meistens ufem Schitterhuffe verbrennt und was immer übrig blibt wird in die Krypta verfrachtet.
+	[
+		# Link node, tag is next tag
+		tag:51
+	]
+}
+{1
+	# [51] NPC Node
+	tag:51
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_FavourQuestStart5
+	translation.en:Oh, and if you happen to meet the grave digger Morton, he's a good friend of mine. Just tell him I sent you, and he'll let you in.
+	translation.de:Oh, und wenn du dem Totengräber Morton begegnen solltest, sag ihm einfach, dass ich dich geschickt habe, und er wird dich hineinlassen.
+	translation.ch:Oh, und wennd em Totegräber Morton begägne sötsch, sagem eifach dass ich di gschickt ha, denn sötter di iineloh.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [35] NPC Node
+	tag:35
+	# triggers: 
+	trigger:DL:removeItem("qe_cinderbloom", 1)
+	trigger:DL:addReputationProgress("necromancer", 10)
+	trigger:DL:changeQuestState("favor_for_a_favor", "completed")
+	trigger:DL:addItem("fo_greaterhealingpotion", 1)
+	# translation: 
+	translation.tag:DL_Syrah_CompleteFavor
+	translation.en:Thank you so much, that's very kind of you. Here, take a potion for your effort.
+	translation.de:Danke vielmals, das ist sehr lieb von dir. Nimm noch einen Trank für deine Mühen.
+	translation.ch:Merci vielmool, das isch sehr lieb vo dir. Nimm nonä Trank für dini Müeh.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [36] NPC Node
+	tag:36
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "necromancers_found")
+	trigger:DL:addReputationProgress("necromancer", 5)
+	# translation: 
+	translation.tag:DL_Syrah_NecromancersFound
+	translation.en:Hehe. Glad to hear you've found Luiz and his crew. Keep it to yourself and you'll make some really good friends.
+	translation.de:Hihi. Schön, dass du Luiz und seine Crew gefunden hast. Behalt es für dich und du wirst dir ein paar wirklich gute neue Freunde machen.
+	translation.ch:Hihi. Schön, dass dr Luiz und sini Crew gfunde hesch. Bhalts eifach für di und du wirsch es paar wirklig gueti neui Kollege ha.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [37] NPC Node
+	tag:37
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "thea")
+	# translation: 
+	translation.tag:DL_Syrah_Thea
+	translation.en:Do you know something about herbs and potions then?
+	translation.de:Kennst du dich denn mit Kräutern und Tränken aus?
+	translation.ch:Kennsch di denn mit Krüttli und Tränk us?
+	[
+		# Link node, tag is next tag
+		tag:38
+	]
+}
+{3
+	# [38] Cendric Node
+	tag:38
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Cendric_Thea
+	translation.en:No, not me, I'm asking for a girl called Thea. She's looking for a job.
+	translation.de:Nein, nicht ich. Ich frage für ein Mädchen namens Thea. Sie sucht Arbeit.
+	translation.ch:Nei, nid ich. Ich frög für es Meitli namens Thea, si suecht Arbet.
+	[
+		# Link node, tag is next tag
+		tag:39
+	]
+}
+{1
+	# [39] NPC Node
+	tag:39
+	# triggers: 
+	trigger:DL:addQuestDescription("theas_dream", 1)
+	# translation: 
+	translation.tag:DL_Syrah_Thea2
+	translation.en:Ah ok. Yes, you can tell her she can start here, as long as she's not totally clumsy.
+	translation.de:Ah okay. Ja, du kannst ihr sagen, sie kann hier beginnen, solange sie nicht völlig tollpatschig ist.
+	translation.ch:Ah okay. Jo, du chasch ere sagä, si cha do aafoh, solang sie nid komplett tollpatschig isch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [40] NPC Node
+	tag:40
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_syrah", "sack")
+	# translation: 
+	translation.tag:DL_Syrah_Sack
+	translation.en:(Giggles) I was joking. But if you're so unhappy with your hair, I might have something for you.
+	translation.de:(Kichert) Ich habe gescherzt. Aber wenn du so unglücklich mit deinen Haaren bist, könnte ich etwas für dich haben.
+	translation.ch:(Gigglet) Ich hanen Witz gmacht. Aber wennd so unglücklich mit dine Hoore bisch, hani vilicht öppis für dich.
+	[
+		# Link node, tag is next tag
+		tag:41
+	]
+}
+{1
+	# [41] NPC Node
+	tag:41
+	# triggers: 
+	trigger:DL:addItem("eq_sack", 1)
+	# translation: 
+	translation.tag:DL_Syrah_Sack2
+	translation.en:Here, it'll solve your problem.
+	translation.de:Hier, er wird dein Problem lösen.
+	translation.ch:Do, er wird dis Problem löse.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_BrewSomething
+	translation.en:Sure, if you got the ingredients?
+	translation.de:Sicher, wenn du die Zutaten hast?
+	translation.ch:Sicher, wennd d'Zuetate hesch?
+	[
+		# Link node, tag is next tag
+		tag:9
+	]
+}
+{2
+	# [9] Choice Node
+	tag:9
+	[
+		# Link node, tag is next tag
+		tag:10
+		# translation: 
+		translation.tag:DL_Choice_LesserHealingPotion
+		translation.en:fo_lesserhealingpotion,fo_healingherb,1,fo_water,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:12
+		# translation: 
+		translation.tag:DL_Choice_MediumHealingPotion
+		translation.en:fo_mediumhealingpotion,fo_healingherb,2,fo_water,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:13
+		# translation: 
+		translation.tag:DL_Choice_GreaterHealingPotion
+		translation.en:fo_greaterhealingpotion,fo_healingherb,3,fo_water,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		# translation: 
+		translation.tag:DL_Choice_ElixirFire
+		translation.en:pe_elixirfire,fo_redhat,1,fo_stormweed,1,fo_wine,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:15
+		# translation: 
+		translation.tag:DL_Choice_ElixirLight
+		translation.en:pe_elixirlight,fo_glowingshroom,1,fo_stormweed,1,fo_wine,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:16
+		# translation: 
+		translation.tag:DL_Choice_ElixirShadow
+		translation.en:pe_elixirshadow,fo_caveberry,1,fo_stormweed,1,fo_wine,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:17
+		# translation: 
+		translation.tag:DL_Choice_ElixirIce
+		translation.en:pe_elixirice,fo_windrose,1,fo_stormweed,1,fo_wine,1
+		translation.de:
+		translation.ch:
+		translation.crafting:1
+	]
+	[
+		# Link node, tag is next tag
+		tag:-2
+		# translation: 
+		translation.tag:DL_Choice_ComeBackLater
+		translation.en:I'll come back later [BACK]
+		translation.de:Ich komme später wieder [ZURÜCK]
+		translation.ch:Ich chume spöter wider [ZRUGG]
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:Thanks. Here you go.
+	translation.de:Danke. Hier, für dich.
+	translation.ch:Merci. Do, nimms.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [16] NPC Node
+	tag:16
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	trigger:DL:gotoNode(9)
+	# translation: 
+	translation.tag:DL_Syrah_HereYouGo
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [42] NPC Node
+	tag:42
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_BrewQuestStart
+	translation.en:Hm. Yes, I could. For you, it's even free... if you do me a small favour.
+	translation.de:Hm. Ja, das könnte ich. Es wird dich nicht mal etwas kosten... wenn du mir einen kleinen Gefallen machst.
+	translation.ch:Hm. Jo, das chönti. Es wär denn sogar gratis für di... wennd mer en chliine Gfalle duesch.
+	[
+		# Link node, tag is next tag
+		tag:43
+	]
+}
+{1
+	# [43] NPC Node
+	tag:43
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_BrewQuestStart2
+	translation.en:I still need some ingredients for a potion that I wanted to brew.
+	translation.de:Mir fehlen noch ein paar Zutaten für einen Trank, den ich mir brauen wollte.
+	translation.ch:Mir fehled na paar Zuetate für es Tränkli woni mr ha wele braue.
+	[
+		# Link node, tag is next tag
+		tag:44
+	]
+}
+{1
+	# [44] NPC Node
+	tag:44
+	# triggers: 
+	trigger:DL:changeQuestState("questionable_method", "started")
+	# translation: 
+	translation.tag:DL_Syrah_BrewQuestStart3
+	translation.en:I only need some bones, some blood of a bat and the heart of a fire rat. I think you can gather all of this from the nasty creatures in the sewers.
+	translation.de:Ich brauche nur ein paar Knochen, ein wenig Blut einer Fledermaus und das Herz einer Feuerratte. Ich denke, das kannst du alles von den garstigen Kreaturen in der Kanalisation von Gandria bekommen.
+	translation.ch:Ich bruch nur es paar Knoche, e glei weeneli Bluet vonere Fläädermuus und es Härz vonere Fyyrratte. I glaub das söttisch alles vo dä Viecher in dr Kanalisation vo Gandria becho.
+	[
+		# Link node, tag is next tag
+		tag:45
+	]
+}
+{1
+	# [45] NPC Node
+	tag:45
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Syrah_BrewQuestStart4
+	translation.en:If you manage to get me that, I'll brew extraordinary potions from the herbs you bring me!
+	translation.de:Wenn du es schaffst, mir das zu holen, werde ich dir aussergewöhnliche Tränke aus den Kräutern brauen, die du mir bringst.
+	translation.ch:Wenn du's schaffsch, mir das z'hole, wirdi der ussergwöhnlichi Tränkli us dene Chrüüter, wod mer bringsch, braue.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{4
+	# [11] Trade Node
+	tag:11
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}

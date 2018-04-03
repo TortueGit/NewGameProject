@@ -1,0 +1,421 @@
+# dia file for dialogue for npc: npc_mona
+
+npc.id:npc_mona
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_mona", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Mona_Hi
+	translation.en:Oh, a new guest. Welcome to the Red Pearl.
+	translation.de:Oh, ein neuer Gast. Willkommen in der Roten Perle.
+	translation.ch:Oh, en neue Gascht. Willkomme i de Rote Perle.
+	[
+		# Link node, tag is next tag
+		tag:3
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "talked")
+	# translation: 
+	translation.tag:DL_Mona_Hi2
+	translation.en:If you got gold and respect my girls, you can have an extraordinary time here. (Smiles)
+	translation.de:Wenn du Gold hast und respektvoll mit meinen Mädels umgehst, kannst du hier eine aussergewöhnliche Zeit geniessen. (Lächelt)
+	translation.ch:Wenn du Gold häsch und respäktvoll mit mine Mäitli umgasch, chasch da e sehr ussergwöhnlichi Ziit gnüsse. (Lächlet)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:5
+		condition:not DL:isConditionFulfilled("npc_mona", "upper_floor")
+		# translation: 
+		translation.tag:DL_Choice_UpperFloor
+		translation.en:How can I get to the upper floor?
+		translation.de:Wie komme ich in den oberen Stock?
+		translation.ch:We chumi in obere Stock?
+	]
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:DL:isConditionFulfilled("npc_mona", "upper_floor") and not DL:isConditionFulfilled("npc_mona", "gate_open") and not DL:hasItem("gold", 100)
+		# translation: 
+		translation.tag:DL_Choice_OpenGate
+		translation.en:Let me go to the upper floor. (100 $gold$)
+		translation.de:Lass mich in den oberen Stock. (100 $gold$)
+		translation.ch:Lah min in obere Stock. (100 $gold$)
+	]
+	[
+		# Link node, tag is next tag
+		tag:8
+		condition:DL:isConditionFulfilled("npc_mona", "upper_floor") and not DL:isConditionFulfilled("npc_mona", "gate_open") and DL:hasItem("gold", 100)
+		# translation: 
+		translation.tag:DL_Choice_OpenGate
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+	[
+		# Link node, tag is next tag
+		tag:7
+		condition:DL:isConditionFulfilled("npc_mona", "upper_floor") and not DL:isConditionFulfilled("npc_mona", "only_meet") and not DL:isConditionFulfilled("npc_mona", "gate_open")
+		# translation: 
+		translation.tag:DL_Choice_OnlyMeet
+		translation.en:I just need to have a quick chat with someone.
+		translation.de:Ich muss nur kurz mit jemandem sprechen.
+		translation.ch:Ich mu nur churz mit öpperem rede.
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		condition:DL:isConditionFulfilled("npc_mona", "gate_open") and not DL:isConditionFulfilled("npc_mona", "fun_unlock") and not DL:isConditionFulfilled("npc_mona", "fun_lock")
+		# translation: 
+		translation.tag:DL_Choice_FunUnlock
+		translation.en:What if I... you know... wanna have some fun?
+		translation.de:Was wenn ich... du weisst... mich amüsieren möchte?
+		translation.ch:Was isch wenn ich... du weisch... mich amüsiere möcht?
+	]
+	[
+		# Link node, tag is next tag
+		tag:9
+		condition:DL:isConditionFulfilled("npc_mona", "fun_unlock") and DL:hasItem("gold", 100)
+		# translation: 
+		translation.tag:DL_Choice_Fun
+		translation.en:I wanna have some fun.
+		translation.de:Ich will mich amüsieren
+		translation.ch:Ich wett mich chli amüsiere.
+	]
+	[
+		# Link node, tag is next tag
+		tag:10
+		condition:DL:isConditionFulfilled("npc_mona", "fun_unlock") and not DL:hasItem("gold", 100) and not (DL:isConditionFulfilled("npc_mona", "sex_exotic") and DL:isConditionFulfilled("npc_mona", "sex_romantic"))
+		# translation: 
+		translation.tag:DL_Choice_FunNoGold
+		translation.en:I wanna have some fun. (100 Gold)
+		translation.de:Ich will mich amüsieren. (100 Gold)
+		translation.ch:Ich wett mich chli amüsiere. (100 Gold)
+	]
+	[
+		# Link node, tag is next tag
+		tag:4
+		# translation: 
+		translation.tag:DL_Choice_Trade
+		translation.en:Can I get a drink here?
+		translation.de:Krieg ich hier etwas zu trinken?
+		translation.ch:Bechumi da öppis zum trinke?
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "upper_floor")
+	# translation: 
+	translation.tag:DL_Mona_UpperFloor
+	translation.en:I'll open the gate for you - for a small compensation - so you can enjoy the show.
+	translation.de:Für eine kleine Entschädigung öffne ich dir die Türe und du kannst dir die Vorführung ansehen.
+	translation.ch:Für e chliini Entschädigung mach ich dir das Töörli uf und du chasch der d'Vorstellig aluege.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Mona_OpenGateNot
+	translation.en:You don't have enough gold.
+	translation.de:Du hast nicht genügend Gold.
+	translation.ch:Du hesch nöd gnueg Gold.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	trigger:DL:removeItem("gold", 100)
+	trigger:DL:addConditionProgress("npc_mona", "gate_open")
+	# translation: 
+	translation.tag:DL_Mona_OpenGate
+	translation.en:Sure, have fun.
+	translation.de:Sicher, viel Spass.
+	translation.ch:Sicher, viel Spass.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "only_meet")
+	# translation: 
+	translation.tag:DL_Mona_OnlyMeet
+	translation.en:Then you can wait until they leave again. If you go up there, you'll have to pay.
+	translation.de:Dann musst du warten, bis sie wieder gehen. Wenn du nach oben willst, musst du zahlen.
+	translation.ch:Denn muesch halt warte bis sie wieder gönd. Wend ue ga wetsch, muesch au zalle.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Mona_FunUnlock
+	translation.en:Hmm... (Mona eyeballs you) How old are you?
+	translation.de:Hmm... (Mona mustert dich) Wie alt bist du?
+	translation.ch:Hmm... (d'Mona musteret dich) Wie alt bisch du?
+	[
+		# Link node, tag is next tag
+		tag:12
+	]
+}
+{2
+	# [12] Choice Node
+	tag:12
+	[
+		# Link node, tag is next tag
+		tag:13
+		# translation: 
+		translation.tag:DL_Choice_AgeDontKnow
+		translation.en:I don't know. I lost my memory. Old enough?
+		translation.de:Ich weiss nicht. Ich habe meine Erinnerungen verloren. Genug alt?
+		translation.ch:Ich weiss nid. Ich ha mini Erinnerige verlore. Alt gnueg?
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		# translation: 
+		translation.tag:DL_Choice_AgeEighteen
+		translation.en:Eighteen.
+		translation.de:Achtzehn.
+		translation.ch:Achzähni.
+	]
+	[
+		# Link node, tag is next tag
+		tag:15
+		# translation: 
+		translation.tag:DL_Choice_TwentyFive
+		translation.en:Twenty-five. (Lie)
+		translation.de:Fünfundzwanzig. (Lügen)
+		translation.ch:Füfezwanzgi. (Lüge)
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "fun_unlock")
+	# translation: 
+	translation.tag:DL_Mona_AgeDontKnow
+	translation.en:Hm. I guess you may nearly be of age. I'll tell my girls to be gentle with you. (Smiles)
+	translation.de:Hm. Ich denke mal, du bist fast volljährig. Ich sage meinen Mädchen, dass sie mit dir sanft umgehen sollen. (Lächelt) 
+	translation.ch:Hm. Ich denk mal, du bisch fascht volljährig. Ich säg mine Mäitli, dass si chli samft mit dir umgah söllet. (Lächlet)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "fun_unlock")
+	# translation: 
+	translation.tag:DL_Mona_AgeEighteen
+	translation.en:Hm. Alright, that may be true. It's okay then. (Smiles)
+	translation.de:Hm. Gut, das könnte stimmen. Also ist es in Ordnung. (Lächelt)
+	translation.ch:Hm. Guet, das chönt stimme. Also isches in Ornig. (Lächlet)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "fun_lock")
+	# translation: 
+	translation.tag:DL_Mona_TwentyFive
+	translation.en:No way! If you're not old enough to tell the truth, you're not old enough for my girls. Get out!
+	translation.de:Nein, niemals. Wenn du nicht genügend alt bist, die Wahrheit zu sagen, dann bist du auch nicht genügend alt für meine Mädchen. Raus mit dir!
+	translation.ch:Nei, sicher nöd. Wennd nöd gnueg alt bisch zum d'Wahrheit säge, bisch au nöd gnueg alt für mini Mäitli. Use mit dir!
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [9] NPC Node
+	tag:9
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Mona_WhatLookingFor
+	translation.en:Very well. What are you looking for?
+	translation.de:Gut, gut. Was suchst du denn?
+	translation.ch:Guet, guet. Was suechsch denn?
+	[
+		# Link node, tag is next tag
+		tag:16
+	]
+}
+{2
+	# [16] Choice Node
+	tag:16
+	[
+		# Link node, tag is next tag
+		tag:17
+		condition:not DL:isConditionFulfilled("npc_mona", "sex_romantic")
+		# translation: 
+		translation.tag:DL_Choice_SexRomantic
+		translation.en:Something romantic.
+		translation.de:Etwas Romantisches.
+		translation.ch:Öppis Romantischs.
+		translation.item.id:gold
+		translation.item.amount:100
+	]
+	[
+		# Link node, tag is next tag
+		tag:18
+		condition:not DL:isConditionFulfilled("npc_mona", "sex_exotic")
+		# translation: 
+		translation.tag:DL_Choice_SexExotic
+		translation.en:Something exotic.
+		translation.de:Etwas Exotisches.
+		translation.ch:Öppis Exotischs.
+		translation.item.id:gold
+		translation.item.amount:100
+	]
+	[
+		# Link node, tag is next tag
+		tag:19
+		condition:not DL:isConditionFulfilled("npc_mona", "sex_wild")
+		# translation: 
+		translation.tag:DL_Choice_SexWild
+		translation.en:Something wild.
+		translation.de:Etwas Wildes.
+		translation.ch:Öppis Wilds.
+		translation.item.id:gold
+		translation.item.amount:100
+	]
+	[
+		# Link node, tag is next tag
+		tag:-2
+		# translation: 
+		translation.tag:DL_Choice_DontKnowLater
+		translation.en:I don't know. I'll come back later. [BACK]
+		translation.de:Ich weiss nicht. Ich komme später wieder. [ZURÜCK]
+		translation.ch:Ich weiss nid. Ich chum spöter wider. [ZRUGG]
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "sex_romantic")
+	trigger:DL:removeGold(100)
+	# translation: 
+	translation.tag:DL_Mona_SexRomantic
+	translation.en:Alright. Then go to Lola, she's already waiting for you. (Winks)
+	translation.de:Gut. Dann geh zu Lola, sie wartet schon auf dich. (Zwinkert)
+	translation.ch:Guet. Denn gaan zu de Lola, sie wartet scho uf dich. (Zwinkeret)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [18] NPC Node
+	tag:18
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_mona", "sex_exotic")
+	trigger:DL:removeGold(100)
+	# translation: 
+	translation.tag:DL_Mona_SexExotic
+	translation.en:Ah, then I have something for you. Go to Karma and she will show you.
+	translation.de:Ah, dann habe ich etwas für dich. Geh zu Karma und sie wird es dir zeigen.
+	translation.ch:Ah, denn hani öppis für dich. Gaan zu de Karma und sie wirds der zeige.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [19] NPC Node
+	tag:19
+	# triggers: 
+	trigger:DL:gotoNode(16)
+	trigger:DL:addConditionProgress("npc_mona", "sex_wild")
+	# translation: 
+	translation.tag:DL_Mona_SexWild
+	translation.en:I'm sorry, but Adelya - our wild cat - is currently busy.
+	translation.de:Tut mir leid, aber Adelya - unsere Wildkatze - ist gerade beschäftigt.
+	translation.ch:Tuet mer leid, aber d'Adelya - öises wilde Büsi - isch grad beschäftiget.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Mona_OpenGateNot
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{4
+	# [4] Trade Node
+	tag:4
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}

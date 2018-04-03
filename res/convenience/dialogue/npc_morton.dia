@@ -1,0 +1,154 @@
+# dia file for dialogue for npc: npc_morton
+
+npc.id:npc_morton
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_morton", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:5
+		condition:DL:isSpellLearned(12) and not DL:isConditionFulfilled("npc_morton", "necromancers")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_morton", "talked")
+	# translation: 
+	translation.tag:DL_Morton_BeGone
+	translation.en:What are you doing here? You're disturbing the peace of the dead. Be gone!
+	translation.de:Was machst du hier? Du störst die Ruhe der Toten. Hinfort mit dir.
+	translation.ch:Was machsch du do? Du störsch d'Rueh vo dä Tote. Abfaahrä!
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_morton", "necromancers")
+	# translation: 
+	translation.tag:DL_Morton_Necromancers
+	translation.en:Be careful with this magic, boy...
+	translation.de:Pass auf mit dieser Magie, Junge...
+	translation.ch:Uffbassä mit dere Magie, Bueb...
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:3
+		condition:DL:isQuestState("favor_for_a_favor", "started") and not DL:isConditionFulfilled("npc_morton", "crypt_open")
+		# translation: 
+		translation.tag:DL_Choice_Syrah
+		translation.en:Syrah sent me. I need to go into that crypt.
+		translation.de:Syrah schickt mich. Ich muss in diese Krypta.
+		translation.ch:D'Syrah het mich gschickt. Ich mun i die Krypta.
+	]
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:not DL:isConditionFulfilled("npc_morton", "guys_like_me") and DL:isConditionFulfilled("npc_morton", "crypt_open")
+		# translation: 
+		translation.tag:DL_Choice_GuysLikeMe
+		translation.en:What do you mean by "guys like me"?
+		translation.de:Was meinst du mit "Typen wie mich"?
+		translation.ch:Was meinsch mit "Type wie ich"?
+	]
+	[
+		# Link node, tag is next tag
+		tag:7
+		condition:not DL:isConditionFulfilled("npc_morton", "other_guy") and DL:isConditionFulfilled("npc_morton", "guys_like_me")
+		# translation: 
+		translation.tag:DL_Choice_OtherGuy
+		translation.en:She's sent another guy?
+		translation.de:Sie hat einen anderen geschickt?
+		translation.ch:Si het en andere gschickt?
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Morton_Syrah
+	translation.en:Ah, Syrah. (Morton stares at you) Why does she always hire guys like you. 
+	translation.de:Ah, Syrah. (Morton starrt dich an) Wieso heuert sie auch immer Typen wie dich für ihre Aufträge an.
+	translation.ch:Ah, d'Syrah. (Dr Morton starrt di aa) Wurumm stellt sie au immer so Type wie dich aa.
+	[
+		# Link node, tag is next tag
+		tag:4
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_morton", "crypt_open")
+	# translation: 
+	translation.tag:DL_Morton_Syrah2
+	translation.en:(Sighs) You can go in. But hurry up and don't touch anything you don't need.
+	translation.de:(Seufzt) Du kannst rein. Aber beeil dich und fass nichts an, das du nicht brauchst.
+	translation.ch:(Seufzt) Chasch iinä. Aber bressier und nüt aadööplä wod nid bruchsch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_morton", "guys_like_me")
+	# translation: 
+	translation.tag:DL_Morton_GuysLikeMe
+	translation.en:Green no-goods. The last one she sent to the crypt never got out again.
+	translation.de:Grünschnäblige Nichtsnutze. Der letzte, den sie hierhergeschickt hat, ist nie wieder herausgekommen.
+	translation.ch:Grienschnääbligi Nichtsnütz. Dr letscht, wo sie do ane gschickt het, isch nie me usecho.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_morton", "other_guy")
+	# translation: 
+	translation.tag:DL_Morton_OtherGuy
+	translation.en:Yes, yes. Red hair, seemed to be about the same age as you. And exactly as green, too. But no more chit-chat, I need to work.
+	translation.de:Ja, ja. Rotes Haar, war etwa so alt wie du und genau so naiv. Aber genug geredet, ich muss jetzt arbeiten.
+	translation.ch:Jo, jo. Roti Hoor, isch öppä so alt gsi wie du und genau so naiv. Aber gnueg gschnuuret, ich mues jetzt schaffe.
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}

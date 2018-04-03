@@ -1,0 +1,593 @@
+# dia file for dialogue for npc: npc_yasha
+
+npc.id:npc_yasha
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_yasha", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+		condition:not DL:isConditionFulfilled("npc_yasha", "attacked") and not (DL:isConditionFulfilled("npc_yasha", "unfriendly") or DL:isConditionFulfilled("npc_yasha", "friendly"))
+	]
+	[
+		# Link node, tag is next tag
+		tag:9
+		condition:not DL:isConditionFulfilled("npc_yasha", "attacked") and not DL:isConditionFulfilled("boss", "BossYasha") and not DL:isConditionFulfilled("npc_yasha", "attacked") and not (DL:isConditionFulfilled("npc_yasha", "unfriendly") and DL:isConditionFulfilled("npc_yasha", "question"))
+	]
+	[
+		# Link node, tag is next tag
+		tag:13
+		condition:DL:isConditionFulfilled("npc_yasha", "attacked") or (DL:isConditionFulfilled("npc_yasha", "unfriendly") and DL:isConditionFulfilled("npc_yasha", "question"))
+	]
+	[
+		# Link node, tag is next tag
+		tag:17
+		condition:not DL:isConditionFulfilled("npc_yasha", "reward")
+	]
+	[
+		# Link node, tag is next tag
+		tag:23
+		condition:DL:hasItem("we_firesword_inactive",1)
+	]
+	[
+		# Link node, tag is next tag
+		tag:20
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "talked")
+	# translation: 
+	translation.tag:DL_Yasha_Hi
+	translation.en:(Growls) Another mortal dares to trespass into my temple. Any last words?
+	translation.de:(Knurrt) Noch ein Sterblicher wagt es, in meinen Tempel einzudringen. Sprich deine letzten Worte. 
+	translation.ch:(Chnurrt) Numal so än Stärblichä wagts, in minä Tempel ichär z'chu. Säg dini letschtu Wort.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:4
+		condition:not DL:isConditionFulfilled("npc_yasha", "urn_open") and not DL:isConditionFulfilled("npc_yasha", "talk")
+		# translation: 
+		translation.tag:DL_Choice_PeacefulTalk
+		translation.en:Can we talk peacefully, demon?
+		translation.de:Können wir uns friedlich unterhalten, Dämon?
+		translation.ch:Chömmer üs friedlich unterhalte, Dämon?
+	]
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:DL:isConditionFulfilled("npc_yasha", "urn_open") and not DL:isConditionFulfilled("npc_yasha", "talk")
+		# translation: 
+		translation.tag:DL_Choice_PeacefulTalk
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+	[
+		# Link node, tag is next tag
+		tag:3
+		# translation: 
+		translation.tag:DL_Choice_Yasha_Attack
+		translation.en:I'm not here to talk. [ATTACK]
+		translation.de:Ich bin nicht zum Reden hier. [ANGREIFEN]
+		translation.ch:Ich bi nid zum Rede do. [AAGRIFE]
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:DL_Choice_End
+		translation.en:(Back away slowly.)
+		translation.de:(Langsam zurückweichen.)
+		translation.ch:(Sich vorsichtig zruggzie.)
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "friendly")
+	trigger:DL:addConditionProgress("npc_yasha", "talk")
+	# translation: 
+	translation.tag:DL_Yasha_YashaSanctuaryDone
+	translation.en:(Yasha stares at you) Hrr. You did traverse my temple without touching my sacred urns. No human did overcome the temptation of touching them before. 
+	translation.de:(Yasha starrt dich an) Hrr. Du hast meinen Tempel durchquert, ohne meine heiligen Urnen anzufassen. Kein Mensch hat dieser Versuchung je widerstanden.
+	translation.ch:(D'Yasha starrt dich ah) Hrr. Dü hesch minä Tempel durchquert ohni eini va minu heiligu Urnä ahz'grifu. Kei Mänsch vor diär het je der Värsüächig chännu widärstah.
+	[
+		# Link node, tag is next tag
+		tag:5
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:changeQuestState("yasha_sanctuary", "completed")
+	# translation: 
+	translation.tag:DL_Yasha_YashaSanctuaryDone2
+	translation.en:I will answer your questions, human.
+	translation.de:Ich werde deine Fragen beantworten, Mensch.
+	translation.ch:Ich wärdu dini Fragä beantwortu, Mänsch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "talk")
+	trigger:DL:addConditionProgress("npc_yasha", "unfriendly")
+	# translation: 
+	translation.tag:DL_Yasha_PeacefulTalkNot
+	translation.en:I've seen you stomping through my temple, opening my sacred urns and destroying the peaceful atmosphere.
+	translation.de:Ich habe dich durch meinen Tempel stampfen gesehen, wie du meine heiligen Urnen geöffnet und die friedliche Atmosphäre zerstört hast.
+	translation.ch:Ich ha dich durch minä Tempel gseh stapfu, wiä dü mini Urna üfgita und die friedlich Atmosphära zärstört hesch.
+	[
+		# Link node, tag is next tag
+		tag:7
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_PeacefulTalkNot2
+	translation.en:You're of the same vile kind as all humans. Before I end your miserable existence, I grant you one question. Choose wisely. 
+	translation.de:Du bist genau so wertlos wie alle Menschen. Bevor ich deine erbärmliche Existenz beende, gewähre ich dir eine Frage. Wähl weise. 
+	translation.ch:Dü bisch genau so wärtlos wiä alli Mänschu. Bevor ich dini erbärmlich Existänz vernichtu, gwähr ich diär nu genau ei Frag. Läs wäise üs.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "attacked")
+	trigger:DL:addConditionProgress("npc_yasha", "unfriendly")
+	# translation: 
+	translation.tag:DL_Yasha_Attack
+	translation.en:Well, prepare to die then.
+	translation.de:Gut, dann mach dich bereit, zu sterben.
+	translation.ch:Güät, de stirbsch halt eifach so.
+	[
+		# Link node, tag is next tag
+		tag:8
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	trigger:DL:startLevel("res/level/boss_yasha/boss_yasha_bad.tmx", 400, 810)
+	# translation: 
+	translation.tag:
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{2
+	# [9] Choice Node
+	tag:9
+	[
+		# Link node, tag is next tag
+		tag:10
+		condition:not DL:isConditionFulfilled("npc_yasha", "what_guarding")
+		# translation: 
+		translation.tag:DL_Choice_WhatGuarding
+		translation.en:What are you guarding?
+		translation.de:Was bewachst du?
+		translation.ch:Was bewachsch du?
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		condition:not DL:isConditionFulfilled("npc_yasha", "mages")
+		# translation: 
+		translation.tag:DL_Choice_Mages
+		translation.en:Who passed through here before me?
+		translation.de:Wer ist hier vor mir durchgekommen?
+		translation.ch:Wer isch do vor mir durecho?
+	]
+	[
+		# Link node, tag is next tag
+		tag:12
+		condition:not DL:isConditionFulfilled("npc_yasha", "who_summoned")
+		# translation: 
+		translation.tag:DL_Choice_WhoSummoned
+		translation.en:Who summoned you?
+		translation.de:Wer hat dich beschworen?
+		translation.ch:Wer het dich beschwore?
+	]
+	[
+		# Link node, tag is next tag
+		tag:15
+		condition:DL:isConditionFulfilled("npc_yasha", "what_guarding") and not DL:isConditionFulfilled("npc_yasha", "secret")
+		# translation: 
+		translation.tag:DL_Choice_Secret
+		translation.en:What's that secret?
+		translation.de:Was ist denn dieses Geheimnis?
+		translation.ch:Wa isch denn da Gheimnis?
+	]
+	[
+		# Link node, tag is next tag
+		tag:16
+		condition:DL:isConditionFulfilled("npc_yasha", "what_guarding") and not DL:isConditionFulfilled("npc_yasha", "key")
+		# translation: 
+		translation.tag:DL_Choice_Key
+		translation.en:Where's the key you were guarding?
+		translation.de:Wo ist dieser Schlüssel, den du bewacht hast?
+		translation.ch:Wo isch de Schlüssel, wo du bewacht hesch?
+	]
+	[
+		# Link node, tag is next tag
+		tag:18
+		condition:DL:isConditionFulfilled("npc_yasha", "friendly") and not DL:isConditionFulfilled("npc_yasha", "attackable")
+		# translation: 
+		translation.tag:DL_Choice_LetPass
+		translation.en:Will you let me pass through your temple?
+		translation.de:Wirst du mich durch deinen Tempel gehen lassen?
+		translation.ch:Derfi dur din Tempel laufe?
+	]
+	[
+		# Link node, tag is next tag
+		tag:19
+		condition:DL:isConditionFulfilled("npc_yasha", "attackable")
+		# translation: 
+		translation.tag:DL_Choice_LetsFight
+		translation.en:Alright, I'm ready to fight. [ATTACK]
+		translation.de:Gut, ich bin bereit, zu kämpfen. [ANGREIFEN]
+		translation.ch:Guet, ich bi parat zum kämpfe. [AGRIIFE]
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:DL_Choice_End
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "what_guarding")
+	trigger:DL:addConditionProgress("npc_yasha", "question")
+	# translation: 
+	translation.tag:DL_Yasha_WhatGuarding
+	translation.en:I was guarding a key to a secret that never should've been revealed.
+	translation.de:Ich habe einen Schlüssel zu einem Geheimnis bewacht, das nie hätte gelüftet werden sollen.
+	translation.ch:Ich ha än Schlussul zuma Gheimnis bewacht, wa niä hetti sellu glüftut wärdu.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "mages")
+	trigger:DL:addConditionProgress("npc_yasha", "question")
+	# translation: 
+	translation.tag:DL_Yasha_Mages
+	translation.en:A filthy thief and his henchmen. They outwitted me with some magic not known to me. 
+	translation.de:Ein dreckiger Dieb und sein Gefolge. Sie haben mich mit mir unbekannter Magie ausgetrickst.
+	translation.ch:Än dräckigä Dieb und schis Gfolg. Schi hent mich mit Magie ubärlischtut, wani nid kännt ha.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "who_summoned")
+	trigger:DL:addConditionProgress("npc_yasha", "question")
+	# translation: 
+	translation.tag:DL_Yasha_WhoSummoned
+	translation.en:A necromancer, a long time ago. As so many necromancers, he underestimated the powers he was playing with.
+	translation.de:Ein Nekromant, vor langer Zeit. Wie so viele Nekromanten hat der die Kräfte, mit denen er gespielt hat, unterschätzt.
+	translation.ch:Än Nekromant, vor langer Ziit. Wiä so vill Nekromantä het är d'Chräft, mit denu wanär gspillt het, unärschätzt.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "secret")
+	# translation: 
+	translation.tag:DL_Yasha_Secret
+	translation.en:...
+	translation.de:...
+	translation.ch:...
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [16] NPC Node
+	tag:16
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "key")
+	# translation: 
+	translation.tag:DL_Yasha_Key
+	translation.en:Grr. It got stolen. But the sword will find its way back to me.
+	translation.de:Grr. Es wurde gestohlen. Aber das Schwert wird seinen Weg zurück zu mir finden.
+	translation.ch:Grr. Äs isch gstohlu wordu. Abär das Schwert wird schinä Wäg zrug zu miär gfindu.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [18] NPC Node
+	tag:18
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_yasha", "attackable")
+	# translation: 
+	translation.tag:DL_Yasha_LetPass
+	translation.en:Hrrr. Yes, I will. But first you will have to prove that you're worthy. Fight me.
+	translation.de:Hrrr. Ja, werde ich. Aber zuerst musst du dich als würdig erweisen. Kämpfe mit mir.
+	translation.ch:Hrrr. Ja, tarfsch. Abär zersch müäsch dü dich als würdig erwiisu. Kämpf mit miär.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [19] NPC Node
+	tag:19
+	# triggers: 
+	trigger:DL:startLevel("res/level/boss_yasha/boss_yasha_good.tmx", 400, 810)
+	# translation: 
+	translation.tag:
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_DieNow
+	translation.en:That's enough. Die now.
+	translation.de:Das ist genug. Stirb jetzt. 
+	translation.ch:Fertig luschtig. Stirb jetz.
+	[
+		# Link node, tag is next tag
+		tag:14
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:startLevel("res/level/boss_yasha/boss_yasha_bad.tmx", 400, 810)
+	# translation: 
+	translation.tag:
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_Reward
+	translation.en:Ahh. I see, your soul is pure and your magic is strong. 
+	translation.de:Ahh. Wie ich sehe, ist deine Seele rein und deine Magie stark.
+	translation.ch:Ahh. Wiä ich gseh, isch dini Seela rein und dini Magie starch.
+	[
+		# Link node, tag is next tag
+		tag:21
+	]
+}
+{1
+	# [21] NPC Node
+	tag:21
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_Reward2
+	translation.en:Maybe you're not as vile as the other humans I met. Maybe you can find that filthy thief and thwart his plans. 
+	translation.de:Vielleicht bist du nicht so wertlos wie die anderen Menschen, die ich getroffen habe. Vielleicht kannst du diesen dreckigen Dieb finden und seine Pläne durchkreuzen.
+	translation.ch:Vilicht bisch dü nid so wärtlos wiä die andru Mänschä wani gitroffu ha. Vilicht chasch dü där Dieb gfindu und schini Plän zärstöru.
+	[
+		# Link node, tag is next tag
+		tag:22
+	]
+}
+{1
+	# [22] NPC Node
+	tag:22
+	# triggers: 
+	trigger:DL:addItem("eq_lifependant", 1)
+	trigger:DL:addItem("we_doublesickle", 1)
+	trigger:DL:addConditionProgress("npc_yasha", "reward")
+	# translation: 
+	translation.tag:DL_Yasha_Reward3
+	translation.en:Here, take this weapon and this pendant. May they help you reach your goals.
+	translation.de:Hier, nimm diese Waffe und diesen Anhänger. Sie sollen dir helfen, deine Ziele zu erreichen.
+	translation.ch:Hiä, nimm die Waffä und der Schmuck. Schi sellund diär hälfu, dini Ziil z'ärreichu.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [23] Choice Node
+	tag:23
+	[
+		# Link node, tag is next tag
+		tag:25
+		# translation: 
+		translation.tag:DL_Choice_Sword
+		translation.en:I found this sword. Is it yours?
+		translation.de:Ich habe dieses Schwert gefunden. Gehört es dir?
+		translation.ch:Ich ha da Schwert gfunde. Ghört das dir?
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [25] NPC Node
+	tag:25
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_Sword
+	translation.en:Hrr. Where did you find that, human? That's my sword, it was stolen.
+	translation.de:Hrr. Wo hast du das gefunden, Mensch? Das ist mein Schwert, es wurde gestohlen.
+	translation.ch:Hrr. Wa hesch das gfundu, Mänsch? Das isch miis Schwert, äs isch miär gstohlu wordu.
+	[
+		# Link node, tag is next tag
+		tag:24
+	]
+}
+{2
+	# [24] Choice Node
+	tag:24
+	[
+		# Link node, tag is next tag
+		tag:26
+		# translation: 
+		translation.tag:DL_Choice_TempleFound
+		translation.en:In the temple in the North.
+		translation.de:Im Tempel im Norden.
+		translation.ch:Im Tempel im Norde.
+	]
+}
+{1
+	# [26] NPC Node
+	tag:26
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_TempleFound
+	translation.en:It's flame has gone out. That means it has been used to enter the temple's library. It's too late.
+	translation.de:Seine Flamme ist erloschen. Das heisst, es wurde benutzt, um die Bibliothek des Tempels zu betreten. Es ist zu spät.
+	translation.ch:Schini Flamma isch ärlescht. Das heisst, äs isch gibrücht wordu fär die Bibliothek im Tempel z'beträttu. Äs isch z'spat.
+	[
+		# Link node, tag is next tag
+		tag:27
+	]
+}
+{1
+	# [27] NPC Node
+	tag:27
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_TempleFound2
+	translation.en:My only purpose was to keep intruders from finding the secrets of the library. I failed.
+	translation.de:Meine einzige Aufgabe war es, Eindringlinge davon abzuhalten, die Geheimnisse der Bibliothek zu finden. Ich habe versagt.
+	translation.ch:Mini einzig Üfgab isch gsi, Ihdringlingä därfa abz'haltu, die Gheimnis fanär Bibliothek z'gfindu. Ich ha värseit.
+	[
+		# Link node, tag is next tag
+		tag:28
+	]
+}
+{1
+	# [28] NPC Node
+	tag:28
+	# triggers: 
+	trigger:DL:removeItem("we_firesword_inactive", 1)
+	# translation: 
+	translation.tag:DL_Yasha_TempleFound3
+	translation.en:But you, you could find the thief for me and punish him. Give me that sword. (Yasha takes the sword and puts it on the ground)
+	translation.de:Aber du, du könntest den Dieb finden und ihn bestrafen. Gib mir dieses Schwert. (Yasha nimmt das Schwert und legt es auf den Boden)
+	translation.ch:Abär dü, dü chänntisch där Dieb gfindu und inu bestrafu. Gib mär das Schwert. (D'Yasha nimmt z'Schwert und leit sus ufä Bodu.)
+	[
+		# Link node, tag is next tag
+		tag:29
+	]
+}
+{1
+	# [29] NPC Node
+	tag:29
+	# triggers: 
+	trigger:DL:addQuestDescription("yashas_sword", 1)
+	# translation: 
+	translation.tag:DL_Yasha_TempleFound4
+	translation.en:(Yasha uses her fiery breath to reignite the sword)
+	translation.de:(Yasha braucht ihren feurigen Atem um das Schwert zu entzünden)
+	translation.ch:(D'Yasha brücht ihru letscht Schnüüf fär z'Schwert z'emprännu.)
+	[
+		# Link node, tag is next tag
+		tag:30
+	]
+}
+{1
+	# [30] NPC Node
+	tag:30
+	# triggers: 
+	trigger:DL:addItem("we_firesword", 1)
+	trigger:DL:changeQuestState("yasha_sword", "completed")
+	# translation: 
+	translation.tag:DL_Yasha_TempleFound5
+	translation.en:Here. Take it and avenge me.
+	translation.de:Hier. Nimm es und räche mich.
+	translation.ch:Hiä. Nimm das und räch mich.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [20] NPC Node
+	tag:20
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Yasha_BeSafe
+	translation.en:Goodbye, and stay safe, human.
+	translation.de:Lebe wohl und pass auf dich auf, Mensch.
+	translation.ch:Läb wohl und pass uf dich üf, Mänsch.
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}

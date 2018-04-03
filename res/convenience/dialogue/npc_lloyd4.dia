@@ -1,0 +1,501 @@
+# dia file for dialogue for npc: npc_lloyd4
+
+npc.id:npc_lloyd4
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_lloyd4", "first")
+	]
+	[
+		# Link node, tag is next tag
+		tag:8
+		condition:DL:isQuestState("find_velius", "void")
+	]
+	[
+		# Link node, tag is next tag
+		tag:15
+		condition:not DL:isConditionFulfilled("npc_lloyd4", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lloyd4", "first")
+	# translation: 
+	translation.tag:DL_Lloyd_Hello
+	translation.en:What... what happened here?! What did you...
+	translation.de:Was... was ist denn hier passiert?! Was hast du...
+	translation.ch:Was... was isch denn do passiert?! Was hesch du...
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{1
+	# [2] NPC Node
+	tag:2
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_Hello2
+	translation.en:(Shocked) You killed them? I told you to interrogate them, and to be careful! They were our only suspects!
+	translation.de:(Schockiert) Du hast sie getötet? Ich hab dir doch gesagt, du sollst sie befragen, und zwar vorsichtig! Sie waren unsere einzigen Verdächtigen!
+	translation.ch:(Schockiert) Du hesch si killt? Ich ha der doch gseit du sölsch si befröge, und zwar vorsichthig! Si sind üsi einzige Verdächtige gsi!
+	[
+		# Link node, tag is next tag
+		tag:3
+	]
+}
+{2
+	# [3] Choice Node
+	tag:3
+	[
+		# Link node, tag is next tag
+		tag:4
+		# translation: 
+		translation.tag:DL_Choice_IDidntMean
+		translation.en:I didn't mean to!
+		translation.de:Das wollte ich nicht!
+		translation.ch:Das hani nid wele!
+	]
+	[
+		# Link node, tag is next tag
+		tag:5
+		# translation: 
+		translation.tag:DL_Choice_CalmDown
+		translation.en:Calm down, we'll find a solution.
+		translation.de:Beruhig dich, wir finden eine Lösung.
+		translation.ch:Chill mal, mer finded scho e Lösig.
+	]
+	[
+		# Link node, tag is next tag
+		tag:6
+		# translation: 
+		translation.tag:DL_Choice_TheyAttacked
+		translation.en:They attacked me! It was self-defence.
+		translation.de:Sie haben mich angegriffen! Es war Selbstverteidigung.
+		translation.ch:Sie hend mich agriffe! Es isch Selbstverteidigung gsi.
+	]
+	[
+		# Link node, tag is next tag
+		tag:7
+		# translation: 
+		translation.tag:DL_Choice_TheyDeserved
+		translation.en:They deserved it.
+		translation.de:Sie haben es verdient.
+		translation.ch:Si hends verdient.
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_IDidntMean
+	translation.en:(Sighs) Throwing your magic at people kills them apparently. Anyway, we've got to find a solution now.
+	translation.de:(Seufzt) Wenn du Leuten deine Magie um die Ohren haust, sterben sie offensichtlich. Egal, nun müssen wir eine Lösung finden.
+	translation.ch:(Süüfzt) Wenn du dini Magie de Lüüt an Grind wirfsch, sterbeds offsichtlich. Egal, mer mönd ez e Lösig finde.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_CalmDown
+	translation.en:Do you have a suggestion?
+	translation.de:Hast du einen Vorschlag?
+	translation.ch:Hesch denn en Vorschlag?
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_TheyAttacked
+	translation.en:Hrr. I'll believe you. But this was the last time I asked you to interrogate someone. Anyway, what should we do now?
+	translation.de:Hrr. Ich werde dir glauben. Aber das war das letzte Mal, dass ich dich jemanden befragen lasse. Wie soll es denn jetzt weitergehen?
+	translation.ch:Hrr. Ich mue dir wohl glaube. Aber da isch s'letzt mal gsi woni dich öpper befroge lah. Egal, we sölls ez wiitergo?
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_TheyDeserved
+	translation.en:Maybe they did, but it's not your job to decide their fate. Anyway, what should we do now?
+	translation.de:Vielleicht haben sie das. Dennoch solltest du nicht einfach über ihr Schicksal entscheiden. Nun, wie soll es jetzt weitergehen?
+	translation.ch:Vilicht hends das ja. Trotzdem chasch nid eifach über ihres Schicksal entscheide. Egal, we sölls ez wiitergo?
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [8] Choice Node
+	tag:8
+	[
+		# Link node, tag is next tag
+		tag:9
+		condition:DL:getGuild() ~= "cleric"
+		# translation: 
+		translation.tag:DL_Choice_FoundLetter
+		translation.en:I found this letter in their pockets. (Give letter)
+		translation.de:Ich habe diesen Brief in ihren Taschen gefunden. (Brief geben)
+		translation.ch:Ich ha de Brief i ihre Täsche gfunde. (Brief gä)
+	]
+	[
+		# Link node, tag is next tag
+		tag:22
+		condition:DL:getGuild() == "cleric"
+		# translation: 
+		translation.tag:DL_Choice_FoundLetter
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [9] NPC Node
+	tag:9
+	# triggers: 
+	trigger:DL:removeItem("do_veliusletter", 1)
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter
+	translation.en:Interesting. Let me have a look at it.
+	translation.de:Interessant. Zeig mal her.
+	translation.ch:Interessant. Zeig mol.
+	[
+		# Link node, tag is next tag
+		tag:10
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter2
+	translation.en:It seems to be from their boss. (Mumbles) mages... mark... Who is that "V."?
+	translation.de:Er scheint von ihrem Auftraggeber zu kommen. (Murmelt) Magier... Mal... Wer ist dieser "V."?
+	translation.ch:Es schiint vo ihrem Uftraggeber z'sii. (Murmlet) Magier... Zeiche... Wer isch de "V."?
+	[
+		# Link node, tag is next tag
+		tag:11
+	]
+}
+{3
+	# [11] Cendric Node
+	tag:11
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Cendric_tldr
+	translation.en:I didn't read the letter yet...
+	translation.de:Ich habe den Brief noch nicht gelesen...
+	translation.ch:Ich ha de Brief nanig glese...
+	[
+		# Link node, tag is next tag
+		tag:12
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	trigger:DL:addItem("do_veliusletter", 1)
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter3
+	translation.en:Here, take it back. Somebody is still abducting mages. Inina is not the only one who's missing.
+	translation.de:Hier, nimm ihn wieder. Jemand verschleppt immer noch Magier. Inina ist nicht die einzige, die vermisst wird.
+	translation.ch:Do, nimmen wieder. Öppert verschleppt immerno Magier. D'Inina isch nid di einzig, wo vermisst wird.
+	[
+		# Link node, tag is next tag
+		tag:13
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	trigger:DL:addQuestProgress("lloyds_plan_necro", "information_gathered")
+	trigger:DL:addQuestProgress("lloyds_plan_thief", "information_gathered")
+	trigger:DL:changeQuestState("ininas_abduction", "completed")
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter4
+	translation.en:I've heard about other cases. We must do something! 
+	translation.de:Ich habe bereits von anderen Fällen gehört. Wir müssen etwas dagegen unternehmen!
+	translation.ch:Ich ha scho vo anderne Fäll ghört. Mer mönd öppis degege mache!
+	[
+		# Link node, tag is next tag
+		tag:14
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:changeQuestState("find_velius", "started")
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter5
+	translation.en:The letter's author is a "V." and he mentions the highlands. Go and look for further clues there. Meanwhile I'm going to find out who that "V." is.
+	translation.de:Der Autor des Briefs ist ein gewisser "V.", und er schreibt vom Hochland. Geh und finde heraus, ob es dort weitere Hinweise gibt. Währenddessen bringe ich in Erfahrung, wer dieser "V." ist.
+	translation.ch:De Autor vom Brief isch en gwüsse "V." und er schriibt öppis vom Hochland. Gang und lueg, obs det wiiteri Hiwiis git. Währenddesse findi use, wer de "V." sii chönt.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [22] NPC Node
+	tag:22
+	# triggers: 
+	trigger:DL:removeItem("do_veliusletter", 1)
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:23
+	]
+}
+{1
+	# [23] NPC Node
+	tag:23
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter2
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:24
+	]
+}
+{3
+	# [24] Cendric Node
+	tag:24
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Cendric_tldr
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:25
+	]
+}
+{1
+	# [25] NPC Node
+	tag:25
+	# triggers: 
+	trigger:DL:addItem("do_veliusletter", 1)
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter3
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:26
+	]
+}
+{1
+	# [26] NPC Node
+	tag:26
+	# triggers: 
+	trigger:DL:changeQuestState("ininas_abduction", "completed")
+	trigger:DL:addReputationProgress("cleric", 5)
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter4
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:27
+	]
+}
+{1
+	# [27] NPC Node
+	tag:27
+	# triggers: 
+	trigger:DL:changeQuestState("find_velius", "started")
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter5
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:28
+	]
+}
+{1
+	# [28] NPC Node
+	tag:28
+	# triggers: 
+	trigger:DL:changeQuestState("missing_inina", "started")
+	# translation: 
+	translation.tag:DL_Lloyd_FoundLetter6
+	translation.en:Oh, and keep an eye open for any hints regarding Inina.
+	translation.de:Oh und falls du irgendwelche Hinweise siehst, was Inina betrifft... lass es mich wissen.
+	translation.ch:Oh und wennd irgendwelchi Hiiwis vo wege de Inina findsch - verzell mer devo.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [15] Choice Node
+	tag:15
+	[
+		# Link node, tag is next tag
+		tag:16
+		condition:not DL:isConditionFulfilled("npc_lloyd4", "where_search")
+		# translation: 
+		translation.tag:DL_Choice_WhereSearch
+		translation.en:Where are those highlands?
+		translation.de:Wo ist dieses Hochland?
+		translation.ch:Wo isch das Hochland?
+	]
+	[
+		# Link node, tag is next tag
+		tag:17
+		condition:not DL:isConditionFulfilled("npc_lloyd4", "why_work") and not DL:getGuild() == "cleric"
+		# translation: 
+		translation.tag:DL_Choice_WhyWork
+		translation.en:And why exactly should I keep working for you?
+		translation.de:Und wieso genau soll ich noch für dich arbeiten?
+		translation.ch:Und weso gnau söli na für dich schaffe?
+	]
+	[
+		# Link node, tag is next tag
+		tag:21
+		# translation: 
+		translation.tag:DL_Choice_Bye
+		translation.en:I'll see what I can do.
+		translation.de:Ich werde sehen, was ich tun kann.
+		translation.ch:Mal luege wani cha mache.
+	]
+}
+{1
+	# [16] NPC Node
+	tag:16
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lloyd4", "where_search")
+	# translation: 
+	translation.tag:DL_Lloyd_WhereSearch
+	translation.en:I think he's talking about the highlands of Admantris, to the West of the marshlands.
+	translation.de:Ich glaub er meint das Hochland von Admantris, westlich des Sumpflands.
+	translation.ch:Ich glaub er meint s'Hochland vo Admantris, westlich vom Sumpfland.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lloyd_WhyWork
+	translation.en:Admantris is in danger. Gandria is in danger. And you probably are, too. Why would you stop helping me?
+	translation.de:Admantris ist in Gefahr. Gandria ist in Gefahr. Und du bist wahrscheinlich auch in Gefahr. Wieso solltest du mir nicht helfen?
+	translation.ch:Admantris isch in Gfohr. Gandria isch in Gfohr. Und du bisch wahrschindli au in Gfohr. Weso sötsch mer nid helfe?
+	[
+		# Link node, tag is next tag
+		tag:18
+	]
+}
+{2
+	# [18] Choice Node
+	tag:18
+	[
+		# Link node, tag is next tag
+		tag:19
+		# translation: 
+		translation.tag:DL_Choice_KeepWorking
+		translation.en:Alright I'll help you.
+		translation.de:Gut, ich werde dir helfen.
+		translation.ch:Guet, ich wird der helfe.
+	]
+	[
+		# Link node, tag is next tag
+		tag:20
+		# translation: 
+		translation.tag:DL_Choice_StopWorking
+		translation.en:You can start looking for another idiot to do your job.
+		translation.de:Du kannst dir einen anderen Idioten suchen, der deinen Job macht.
+		translation.ch:Du chasch der en andere Tubel sueche wo din Job macht.
+	]
+}
+{1
+	# [19] NPC Node
+	tag:19
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lloyd4", "why_work")
+	# translation: 
+	translation.tag:DL_Lloyd_KeepWorking
+	translation.en:(Lloyd nods acknowledging)
+	translation.de:(Lloyd nickt anerkennend)
+	translation.ch:(De Lloyd nickt anerkennend)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [20] NPC Node
+	tag:20
+	# triggers: 
+	trigger:DL:changeQuestState("find_velius", "failed")
+	trigger:DL:addConditionProgress("npc_lloyd4", "why_work")
+	trigger:DL:addConditionProgress("npc_lloyd4", "talked")
+	# translation: 
+	translation.tag:DL_Lloyd_StopWorking
+	translation.en:(Disdainfully) I don't need you.
+	translation.de:(Verächtlich) Ich brauche dich nicht.
+	translation.ch:(Verächtlich) Ich bruch dich nid.
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [21] NPC Node
+	tag:21
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lloyd4", "talked")
+	# translation: 
+	translation.tag:DL_Lloyd_Bye
+	translation.en:Be safe.
+	translation.de:Pass auf dich auf.
+	translation.ch:Pass uf dich uf.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}

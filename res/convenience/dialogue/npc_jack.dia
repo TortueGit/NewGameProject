@@ -1,0 +1,301 @@
+# dia file for dialogue for npc: npc_jack
+
+npc.id:npc_jack
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_jack", "who_are_you")
+	]
+	[
+		# Link node, tag is next tag
+		tag:3
+		condition:not DL:isConditionFulfilled("npc_jack", "elysia")
+	]
+	[
+		# Link node, tag is next tag
+		tag:9
+	]
+}
+{2
+	# [1] Choice Node
+	tag:1
+	[
+		# Link node, tag is next tag
+		tag:2
+		# translation: 
+		translation.tag:DL_Choice_WhoAreYou
+		translation.en:Who are you?
+		translation.de:Wer bist du?
+		translation.ch:Wer bisch du?
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [2] NPC Node
+	tag:2
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jack", "who_are_you")
+	# translation: 
+	translation.tag:DL_Jack_WhoAreYou
+	translation.en:Hello, kid. I'm Jack. Usually I'd sit in my lighthouse instead of this bawdy house.
+	translation.de:Hallo, Jungchen. Ich bin Jack. Normalerweise wär ich ja in meinem Leuchtturm und nicht hier bei den Dirnen.
+	translation.ch:Hoi Jungchen. I bin dr Jack. Normalerwis wäri jo i mim Lüchtturm und ni do i däm Puff.
+	[
+		# Link node, tag is next tag
+		tag:4
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jack_WhoAreYou2
+	translation.en:But I can't go back as long as that thing flies around there.
+	translation.de:Aber ich kann nicht zurück solange dieses Viech dort herumschwirrt.
+	translation.ch:Aber i cha ni zrugg solang da Viech döt umaflügt.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [3] Choice Node
+	tag:3
+	[
+		# Link node, tag is next tag
+		tag:5
+		# translation: 
+		translation.tag:DL_Choice_Elysia
+		translation.en:What is this "thing" you're talking about?
+		translation.de:Von was für einem "Viech" sprichst du?
+		translation.ch:Was füre "Viech" isches denn?
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jack", "elysia")
+	# translation: 
+	translation.tag:DL_Jack_Elysia
+	translation.en:It looks like a huge bird. Sounds like one too, its shrieks are unbearable.
+	translation.de:Es sieht aus wie ein riesiger Vogel und klingt auch wie einer, sein Gekreische ist nicht auszuhalten.
+	translation.ch:As gseht us wiana riesiga Vogel und tönt au wia eina, sis Umagekraische chama fast ni ushalta.
+	[
+		# Link node, tag is next tag
+		tag:7
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jack_Elysia2
+	translation.en:I tried to shoo it away using my frying pan, but it just snatched it away from me and devoured it.
+	translation.de:Ich habe versucht, ihn mit meiner Bratpfanne zu verscheuchen, aber er hat sie mir entrissen und verschluckt.
+	translation.ch:Ich ha probiart, ihn mitara Bratpfanna s'verschücha, aber är hät si miar us dr Hand grissa und verschluckt.
+	[
+		# Link node, tag is next tag
+		tag:8
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jack_Elysia3
+	translation.en:It was a really good frying pan, what a shame...
+	translation.de:Schade um die gute Pfanne...
+	translation.ch:Isch chli schad um dia guat Pfanna...
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [9] Choice Node
+	tag:9
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:not DL:isConditionFulfilled("npc_jack", "why_not_clerics")
+		# translation: 
+		translation.tag:DL_Choice_WhyNotClerics
+		translation.en:Why didn't you ask the paladins for help?
+		translation.de:Wieso hast du nicht die Paladine um Hilfe gefragt?
+		translation.ch:Weso hesch nid d'Paladin um Hilf gfrögt?
+	]
+	[
+		# Link node, tag is next tag
+		tag:11
+		condition:DL:isQuestState("kill_elysia", "void")
+		# translation: 
+		translation.tag:DL_Choice_HelpJack
+		translation.en:I could take care of that problem.
+		translation.de:Ich könnte mich um dieses Problem kümmern.
+		translation.ch:Ich chönt mich um da Problem kümmere.
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		condition:DL:isQuestState("kill_elysia", "started") and DL:isQuestComplete("kill_elysia")
+		# translation: 
+		translation.tag:DL_Choice_ElysiaKilled
+		translation.en:I've found your frying pan.
+		translation.de:Ich habe deine Bratpfanne gefunden.
+		translation.ch:Ich ha dini Bratpfanne gfunde.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jack_WhyNotClerics
+	translation.en:Oh, I did! But that sneaky chicken wouldn't show up when they looked for it.
+	translation.de:Oh, das habe ich! Aber dieses hinterhältige Federvieh wollte sich nicht zeigen, als sie es gesucht haben.
+	translation.ch:Oh, das hani! Aber da hinterhältigi Federviech hät sich ni wela zeiga wo si go luaga sind.
+	[
+		# Link node, tag is next tag
+		tag:10
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jack", "why_not_clerics")
+	# translation: 
+	translation.tag:DL_Jack_WhyNotClerics2
+	translation.en:Now they just won't believe me anymore. But I really don't want to end up as bird food, I just hope it will leave my lighthouse soon.
+	translation.de:Jetzt glauben sie mir einfach nicht mehr. Aber ich möchte wirklich nicht als Vogelfutter enden - hoffentlich macht er es sich nicht gemütlich in meinem Turm.
+	translation.ch:Jetzt glaubed si miar eifach nüma. Aber ich wet ächt nid als Vogelfuater enda, drum hoffi er flügt bald wieder weg.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jack_HelpJack
+	translation.en:Really? You'd do me a big favour!
+	translation.de:Wirklich? Du würdest mir einen grossen Gefallen tun!
+	translation.ch:Würkli? Du würsch miar a grossa Gfalla macha!
+	[
+		# Link node, tag is next tag
+		tag:12
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	trigger:DL:addItem("ke_lighthouse", 1)
+	trigger:DL:addQuestDescription("element_master", 2)
+	# translation: 
+	translation.tag:DL_Jack_HelpJack2
+	translation.en:Here, take the key to my lighthouse. I locked it to prevent people getting eaten.
+	translation.de:Da, nimm den Schlüssel zu meinem Leuchtturm. Ich hatte ihn zugeschlossen, damit niemand gefressen wird.
+	translation.ch:Do, nimm da Schlüssel zu mim Lüchtturm. Ich hanen abgschlossa damit niamert ufgfressa wird.
+	[
+		# Link node, tag is next tag
+		tag:13
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	trigger:DL:changeQuestState("kill_elysia", "started")
+	# translation: 
+	translation.tag:DL_Jack_HelpJack3
+	translation.en:Oh, and while you're on it, it would be awesome if you could get me my frying pan back.
+	translation.de:Oh und wenn du schon dabei bist, es wäre toll, wenn du mir meine Pfanne wiederbringen könntest.
+	translation.ch:Oh und wen grad dabi bisch, es wär würkli hammer wend miar mini Pfanna zrugghola chasch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:removeItem("qe_jackpan", 1)
+	# translation: 
+	translation.tag:DL_Jack_ElysiaKilled
+	translation.en:You really did it! That's my good old pan.
+	translation.de:Du hast es wirklich geschafft! Das ist meine gute alte Pfanne.
+	translation.ch:Du heschas würkli gschafft! Da isch mini guat alt Pfanna.
+	[
+		# Link node, tag is next tag
+		tag:15
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:changeQuestState("kill_elysia", "completed")
+	# translation: 
+	translation.tag:DL_Jack_ElysiaKilled2
+	translation.en:Now that that chicken's gone, I can finally go back to my lighthouse.
+	translation.de:Jetzt, wo dieses Federvieh weg ist, kann ich endlich wieder in meinen Turm.
+	translation.ch:Jetzt, wo da Federviech weg isch, chani endlich wieder i min Turm zrugg.
+	[
+		# Link node, tag is next tag
+		tag:16
+	]
+}
+{1
+	# [16] NPC Node
+	tag:16
+	# triggers: 
+	trigger:DL:addGold(50)
+	trigger:DL:addConditionProgress("npc_jack","jack_back")
+	# translation: 
+	translation.tag:DL_Jack_ElysiaKilled3
+	translation.en:Here, take the gold I was going to spend here, I don't need it anymore.
+	translation.de:Hier, nimm das Gold, das ich hier ausgeben wollte, jetzt brauch ich's nicht mehr.
+	translation.ch:Da, nimm's Gold woni do ha wela usge, do bruchi es nüma.
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}

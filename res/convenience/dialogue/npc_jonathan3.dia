@@ -1,0 +1,395 @@
+# dia file for dialogue for npc: npc_jonathan3
+
+npc.id:npc_jonathan3
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_jonathan3", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_Hey
+	translation.en:You're back, perfect. I found the mages who robbed me and secretly followed them to this crypt.
+	translation.de:Du bist zurück, perfekt. Ich habe die Magier gefunden, die mich ausgeraubt haben, und bin ihnen bis zu dieser Krypta gefolgt.
+	translation.ch:Du bisch zruck, perfekt. I han dia Magier gfunda, wo mi usgraubt hän, und bin ihna bis zu dera Krypta gfolgt.
+	[
+		# Link node, tag is next tag
+		tag:3
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jonathan3", "talked")
+	# translation: 
+	translation.tag:DL_Jonathan_Hey2
+	translation.en:But they locked it with a spell. I need the name of the mage who cast the spell to unlock it.
+	translation.de:Aber sie haben sie mit einem Zauber verschlossen. Ich brauche den Namen des Magiers, der den Zauber gewirkt hat, um das Tor aufzuschliessen.
+	translation.ch:Aber si hän si mitema Zauber verschlossa. I brucha dr Nama vom Magier, wos verzauberet hät, zums wieder ofmacha.
+	[
+		# Link node, tag is next tag
+		tag:20
+	]
+}
+{1
+	# [20] NPC Node
+	tag:20
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_Hey3
+	translation.en:And you, did you find something interesting in the temple?
+	translation.de:Und du, hast du etwas Interessantes im Tempel gefunden?
+	translation.ch:Und du, häsch öppis interessants im Tempel gfunda?
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:11
+		condition:not DL:isConditionFulfilled("default","gandriacrypt_open")
+		# translation: 
+		translation.tag:DL_Choice_Name
+		translation.en:I know the name of the mage who cast the spell...
+		translation.de:Ich kenne den Namen des Magiers, der diesen Zauber gewirkt hat...
+		translation.ch:Ich kenn de Name vom Magier, wo das Tor verschlosse het...
+	]
+	[
+		# Link node, tag is next tag
+		tag:4
+		condition:DL:isQuestState("jonathan_knowledge", "started") and DL:isQuestComplete("jonathan_knowledge")
+		# translation: 
+		translation.tag:DL_Choice_Books
+		translation.en:I found some books for you. (Give documents)
+		translation.de:Ich habe ein paar Bücher für dich gefunden. (Dokumente geben)
+		translation.ch:Ich ha es paar Büecher für dich gfunde. (Dokument gä)
+	]
+	[
+		# Link node, tag is next tag
+		tag:10
+		condition:DL:isQuestState("jonathan_knowledge", "started") and not DL:isQuestComplete("jonathan_knowledge") and not DL:isConditionFulfilled("npc_jonathan3", "no_books")
+		# translation: 
+		translation.tag:DL_Choice_NoBook
+		translation.en:I've found a library but I still need some books for you.
+		translation.de:Ich habe eine Bibliothek gefunden, aber ich brauche noch ein paar Bücher.
+		translation.ch:Ich hane Bibliothek gfunde, aber ich bruch no es paar Büecher.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{2
+	# [11] Choice Node
+	tag:11
+	[
+		# Link node, tag is next tag
+		tag:13
+		# translation: 
+		translation.tag:DL_Choice_Name1
+		translation.en:Tarabas.
+		translation.de:Tarabas.
+		translation.ch:Tarabas.
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		condition:DL:isQuestDescriptionUnlocked("find_velius",3)
+		# translation: 
+		translation.tag:DL_Choice_NameVelius
+		translation.en:Velius.
+		translation.de:Velius.
+		translation.ch:Velius.
+	]
+	[
+		# Link node, tag is next tag
+		tag:12
+		# translation: 
+		translation.tag:DL_Choice_Name2
+		translation.en:Inina.
+		translation.de:Inina.
+		translation.ch:Inina.
+	]
+	[
+		# Link node, tag is next tag
+		tag:16
+		# translation: 
+		translation.tag:DL_Choice_Name3
+		translation.en:Tassadan.
+		translation.de:Tassadan.
+		translation.ch:Tassadan.
+	]
+	[
+		# Link node, tag is next tag
+		tag:17
+		# translation: 
+		translation.tag:DL_Choice_Name4
+		translation.en:Bob.
+		translation.de:Bob.
+		translation.ch:Bob.
+	]
+	[
+		# Link node, tag is next tag
+		tag:18
+		# translation: 
+		translation.tag:DL_Choice_Name5
+		translation.en:Koray.
+		translation.de:Koray.
+		translation.ch:Koray.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-2
+		# translation: 
+		translation.tag:DL_Choice_DontKnow
+		translation.en:Erm, never mind.
+		translation.de:Ehm, egal.
+		translation.ch:Ehm, egal.
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_WrongName
+	translation.en:Okay, let's try it... (Jonathan mumbles a spell) Hm. It didn't work.
+	translation.de:Okay, versuchen wir's... (Jonathan murmelt einen Zauber) Hm. Hat nicht funktioniert.
+	translation.ch:Okay, probiaremers... (Dr Jonathan murmlet an Zauber) Hm. Hät nit funktioniart.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_CorrectName
+	translation.en:Okay, let's try it... (Jonathan mumbles a spell)
+	translation.de:Okay, versuchen wir's... (Jonathan murmelt einen Zauber) 
+	translation.ch:Okay, probiaremers... (Dr Jonathan murmlet an Zauber)
+	[
+		# Link node, tag is next tag
+		tag:15
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:addConditionProgress("default", "gandriacrypt_open")
+	# translation: 
+	translation.tag:DL_Jonathan_CorrectName2
+	translation.en:Yes. We did it! Now you can follow them.
+	translation.de:Ja, geschafft! Jetzt kannst du ihnen folgen.
+	translation.ch:Jo, gschafft! Jetzt kasch ihna folga.
+	[
+		# Link node, tag is next tag
+		tag:19
+	]
+}
+{1
+	# [19] NPC Node
+	tag:19
+	# triggers: 
+	trigger:DL:startCutscene("chapter_5")
+	# translation: 
+	translation.tag:
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_WrongName
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [16] NPC Node
+	tag:16
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_WrongName
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [17] NPC Node
+	tag:17
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_WrongName
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [18] NPC Node
+	tag:18
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_WrongName
+	translation.en:
+	translation.de:
+	translation.ch:
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	trigger:DL:removeItem("do_antigravity", 1)
+	trigger:DL:removeItem("do_antimagic", 1)
+	# translation: 
+	translation.tag:DL_Jonathan_Books
+	translation.en:Woah. Woah! (Jonathan skims the documents) 
+	translation.de:Woah. Woah! (Jonathan fliegt über die Dokumente)
+	translation.ch:Woah. Woah! (Dr Jonathan flügt über d'Dokument)
+	[
+		# Link node, tag is next tag
+		tag:5
+	]
+}
+{1
+	# [5] NPC Node
+	tag:5
+	# triggers: 
+	trigger:DL:changeQuestState("jonathan_knowledge", "completed")
+	# translation: 
+	translation.tag:DL_Jonathan_Books2
+	translation.en:That's exactly what we were looking for. The old, forgotten anti-magic. Dangerous magic.
+	translation.de:Das ist genau, nach was wir gesucht haben. Die alte, vergessene Antimagie. Gefährliche Magie.
+	translation.ch:Das isch genau das, noch däm mer gsuacht hän. Dia alt, vergessa Antimagie. Gföhrlichi Magie.
+	[
+		# Link node, tag is next tag
+		tag:6
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_Books3
+	translation.en:Even though some pages are missing in this book, I should return as fast as possible to the academy. Will you come with me?
+	translation.de:Obwohl hier einige Seiten in diesem Buch fehlen, sollte ich so schnell wie möglich zur Akademie zurück. Kommst du mit?
+	translation.ch:Obwohl do einigi Siita i däm Buach fählen, sötti so schnell wia möglich zudr Akademie zruck. Kusch mit?
+	[
+		# Link node, tag is next tag
+		tag:7
+	]
+}
+{2
+	# [7] Choice Node
+	tag:7
+	[
+		# Link node, tag is next tag
+		tag:8
+		# translation: 
+		translation.tag:DL_Choice_Business
+		translation.en:I still got business here.
+		translation.de:Ich habe hier immer noch zu tun.
+		translation.ch:Ich ha do immerno z'tue.
+	]
+	[
+		# Link node, tag is next tag
+		tag:9
+		# translation: 
+		translation.tag:DL_Choice_LoveTo
+		translation.en:I'd love to...
+		translation.de:Ich würde ja gern...
+		translation.ch:Ich wür jo gern...
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_Business
+	translation.en:You're right. You should follow those mages. Maybe you even find the missing pages. See you at the academy!
+	translation.de:Du hast recht. Du solltest diesen Magiern folgen. Vielleicht findest du sogar die fehlenden Seiten. Man sieht sich in der Akademie!
+	translation.ch:Du häsch recht. Du söttisch dena Magier folga. Vilicht findisch sogar dia fehlenda Siita. Ma gseht sich in dr Akademie!
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [9] NPC Node
+	tag:9
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Jonathan_LoveTo
+	translation.en:But you need to follow those mages, right? Maybe you even find the missing pages. Anyway, see you at the academy!
+	translation.de:Aber du musst diesen Magiern folgen, oder? Vielleicht findest du sogar die fehlenden Seiten. Auf jeden Fall sieht man sich in der Akademie!
+	translation.ch:Aber du muasch dena Magier folga, gäll? Vilicht findisch sogar dia fehlenda Siita. Uf jedafall gseht ma sich in dr Akademie!
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_jonathan3", "no_books")
+	# translation: 
+	translation.tag:DL_Jonathan_NoBook
+	translation.en:Alright. I'll wait here then.
+	translation.de:Gut. Ich warte dann hier.
+	translation.ch:Guat. I warta denn do.
+	[
+		# Link node, tag is next tag
+		tag:-1
+	]
+}

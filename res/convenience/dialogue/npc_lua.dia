@@ -1,0 +1,296 @@
+# dia file for dialogue for npc: npc_lua
+
+npc.id:npc_lua
+
+{5
+	# [-1] Start Node
+	tag:-1
+	[
+		# Link node, tag is next tag
+		tag:1
+		condition:not DL:isConditionFulfilled("npc_lua", "talked")
+	]
+	[
+		# Link node, tag is next tag
+		tag:5
+	]
+}
+{1
+	# [1] NPC Node
+	tag:1
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lua", "talked")
+	# translation: 
+	translation.tag:DL_Lua_Hello
+	translation.en:Oh, hello. It's very uncommon to see a mage with such a special aura. You're an elementalist, right?
+	translation.de:Oh, hallo. Es ist ziemlich unüblich, einen Magier mit einer solch speziellen Aura zu treffen. Du bist ein Elementarmagier, nicht wahr?
+	translation.ch:Oh, hallo. Es isch ziemlig ungwöhnlich ä Magier mit sonere speziellä Aura z'träffe. Du bisch ä Elementarmagier, gäll?
+	[
+		# Link node, tag is next tag
+		tag:2
+	]
+}
+{2
+	# [2] Choice Node
+	tag:2
+	[
+		# Link node, tag is next tag
+		tag:3
+		# translation: 
+		translation.tag:DL_Choice_Elementalist
+		translation.en:Yes, you're right. How do you know?
+		translation.de:Ja, bin ich. Woher weisst du das?
+		translation.ch:Ja, bini. Woher weisch du das?
+	]
+	[
+		# Link node, tag is next tag
+		tag:4
+		# translation: 
+		translation.tag:DL_Choice_Flirt
+		translation.en:It's also uncommon to meet such a beautiful lady here.
+		translation.de:Es ist auch unüblich, hier so eine hübsche Dame zu treffen.
+		translation.ch:Es isch au ungwöhnlich, da sone hübschi Dame z'treffe.
+	]
+}
+{1
+	# [3] NPC Node
+	tag:3
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lua_Elementalist
+	translation.en:I'm a clairvoyant. (Smiles mysteriously)
+	translation.de:Ich bin eine Sehende. (Lächelt geheimnisvoll)
+	translation.ch:Ich bi ä Sehendi. (Lächlet gheimnisvoll)
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [4] NPC Node
+	tag:4
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lua", "flirt")
+	trigger:DL:addReputationProgress("necromancer", 5)
+	# translation: 
+	translation.tag:DL_Lua_Flirt
+	translation.en:(Blushes) Oh, thank you. What a pity, my skills as a clairvoyant only show me your aura, not your thoughts.
+	translation.de:(Errötet) Oh, danke. Wie schade, meine Fähigkeiten als Sehende enthüllen nur deine Aura, nicht aber deine Gedanken.
+	translation.ch:(Errötet) Oh, merci. Schad, mini Fähigkeite als Sehendi enthüllä nur dini Aura, aber nid dini Gedanggä.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{2
+	# [5] Choice Node
+	tag:5
+	[
+		# Link node, tag is next tag
+		tag:6
+		condition:not DL:isConditionFulfilled("npc_lua", "clairvoyant")
+		# translation: 
+		translation.tag:DL_Choice_Clairvoyant
+		translation.en:What does it mean to be a clairvoyant?
+		translation.de:Was bedeutet es, eine Sehende zu sein?
+		translation.ch:Was heissts, e Sehendi z'sii?
+	]
+	[
+		# Link node, tag is next tag
+		tag:7
+		condition:DL:isConditionFulfilled("npc_lua", "clairvoyant") and not DL:isConditionFulfilled("npc_lua", "my_aura")
+		# translation: 
+		translation.tag:DL_Choice_MyAura
+		translation.en:What colour does my aura have then?
+		translation.de:Was für eine Farbe hat dann meine Aura?
+		translation.ch:Wa füre Farb het denn mini Aura?
+	]
+	[
+		# Link node, tag is next tag
+		tag:8
+		condition:not DL:isConditionFulfilled("npc_lua", "no_necromancer")
+		# translation: 
+		translation.tag:DL_Choice_NoNecromancer
+		translation.en:You don't look like a necromancer...
+		translation.de:Du siehst nicht gerade wie ein Nekromant aus...
+		translation.ch:Du gsesch nid grad we en Nekromant us...
+	]
+	[
+		# Link node, tag is next tag
+		tag:10
+		condition:DL:isQuestState("eye_of_the_moon", "void")
+		# translation: 
+		translation.tag:DL_Choice_EyeQuest
+		translation.en:Can I help you with something?
+		translation.de:Kann ich dir irgendwie helfen?
+		translation.ch:Chan ich dir irgendwie helfe?
+	]
+	[
+		# Link node, tag is next tag
+		tag:14
+		condition:DL:isQuestState("eye_of_the_moon", "started") and DL:isQuestComplete("eye_of_the_moon")
+		# translation: 
+		translation.tag:DL_Choice_GotEye
+		translation.en:I got your amulet.
+		translation.de:Ich habe dein Amulett.
+		translation.ch:Ich ha dis Amulett.
+	]
+	[
+		# Link node, tag is next tag
+		tag:-1
+		# translation: 
+		translation.tag:
+		translation.en:
+		translation.de:
+		translation.ch:
+	]
+}
+{1
+	# [6] NPC Node
+	tag:6
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lua", "clairvoyant")
+	# translation: 
+	translation.tag:DL_Lua_Clairvoyant
+	translation.en:Most mages only feel the power of someone's aura. People like me can see their colour - the mage's affinity to a type of magic.
+	translation.de:Die meisten Magier spüren nur die Kraft von Auren. Leute wie ich sehen aber ihre Farbe - die Affinität eines Magiers zu einem Zweig der Magie.
+	translation.ch:Diä meischtä Magier gspüürä nur d'Kraft vo Aurenä. Lüt wiä ich gsehn aber ihri Farb - d'Affinität vom Magier zunere gwüsse Art vo Magie.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [7] NPC Node
+	tag:7
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lua", "my_aura")
+	# translation: 
+	translation.tag:DL_Lua_MyAura
+	translation.en:For me, it appears in a fiery red. Exceptionally beautiful to look at.
+	translation.de:Für mich erscheint sie in einem feurigen Rot. Ein aussergewöhnlich schöner Anblick. 
+	translation.ch:Für mich erschiint sie imene Fyyrrot. Wirgglig ussergwöhnlig zum aaluege.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [8] NPC Node
+	tag:8
+	# triggers: 
+	trigger:DL:addConditionProgress("npc_lua", "no_necromancer")
+	# translation: 
+	translation.tag:DL_Lua_NoNecromancer
+	translation.en:Just because I don't wear their robes? Well, to be honest, I just came here to read.
+	translation.de:Einfach weil ich nicht ihre Roben trage? Nun, um ehrlich zu sein, bin ich einfach zum Lesen hergekommen.
+	translation.ch:Nur willi nit ihri Robe aa ha? Jo wenni ehrlig bi bini au nur doo zum läse.
+	[
+		# Link node, tag is next tag
+		tag:9
+	]
+}
+{1
+	# [9] NPC Node
+	tag:9
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lua_NoNecromancer2
+	translation.en:I love this library. So much knowledge that would be burned by the clerics if they got the chance...
+	translation.de:Ich liebe diese Bibliothek. So viel Wissen, welches von den Klerikern verbrannt werden würde, wenn es ihnen möglich wäre.
+	translation.ch:Ich lieb die Bibliothek. So viel Wüssä wo vo dä Kleriker verbrennt wärde würd, wennsi d'Möglichkeit drzue hättä.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [10] NPC Node
+	tag:10
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lua_EyeQuest
+	translation.en:Oh, that's so nice of you to ask. 
+	translation.de:Oh, lieb von dir, dass du fragst.
+	translation.ch:Oh, isch lieb, dassd fragsch.
+	[
+		# Link node, tag is next tag
+		tag:11
+	]
+}
+{1
+	# [11] NPC Node
+	tag:11
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lua_EyeQuest2
+	translation.en:My dear magical amulet, the "Eye of the Moon", got stolen.
+	translation.de:Mein geliebtes magisches Amulett, das "Auge des Mondes", wurde gestohlen.
+	translation.ch:Mis gliebt Amulet, es "Mondaug" isch gstoohle worde.
+	[
+		# Link node, tag is next tag
+		tag:12
+	]
+}
+{1
+	# [12] NPC Node
+	tag:12
+	# triggers: 
+	# translation: 
+	translation.tag:DL_Lua_EyeQuest3
+	translation.en:Unfortunately, I don't have any clue where it could be.
+	translation.de:Leider habe ich keine Idee, wo es sein könnte.
+	translation.ch:Leider hani gar keni Ideä, wos si chenti.
+	[
+		# Link node, tag is next tag
+		tag:13
+	]
+}
+{1
+	# [13] NPC Node
+	tag:13
+	# triggers: 
+	trigger:DL:changeQuestState("eye_of_the_moon", "started")
+	# translation: 
+	translation.tag:DL_Lua_EyeQuest4
+	translation.en:But I would give you my gold and precious stones, if you happen to find it.
+	translation.de:Aber ich würde dir mein Gold und Edelsteine überlassen, wenn du es finden solltest.
+	translation.ch:Aber ich wür der mis Gold und Edelstei ge, wennds finde söttsch.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}
+{1
+	# [14] NPC Node
+	tag:14
+	# triggers: 
+	trigger:DL:removeItem("eq_eyeofthemoon", 1)
+	# translation: 
+	translation.tag:DL_Lua_GotEye
+	translation.en:Wow, you really found it?
+	translation.de:Wow, du hast es wirklich gefunden?
+	translation.ch:Wow, du hesches würkli gfunde?
+	[
+		# Link node, tag is next tag
+		tag:15
+	]
+}
+{1
+	# [15] NPC Node
+	tag:15
+	# triggers: 
+	trigger:DL:changeQuestState("eye_of_the_moon", "completed")
+	trigger:DL:addItem("mi_shinystone", 3)
+	trigger:DL:addGold(50)
+	trigger:DL:addReputationProgress("necromancer", 5)
+	# translation: 
+	translation.tag:DL_Lua_GotEye2
+	translation.en:I really, really missed it. Thank you, my hero. Here, take your reward.
+	translation.de:Das habe ich wirklich sehr vermisst. Vielen Dank, mein Held. Hier, nimm deine Belohnung.
+	translation.ch:Das hani wirgglig sehr vrmisst. Danke, min Held. Da, nimm dini Belohnig.
+	[
+		# Link node, tag is next tag
+		tag:-2
+	]
+}

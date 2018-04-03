@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Enums">
+      <UniqueIdentifier>{3a23c3ae-5f4a-4a0e-917f-cceac421cbae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Global">
+      <UniqueIdentifier>{d3bdef0b-8043-4a59-8078-67cf2be5490c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Structs">
+      <UniqueIdentifier>{63155fac-32de-49fb-bca9-3e09ad0d71e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\FileIO">
+      <UniqueIdentifier>{3411d345-084c-4f81-a5ae-3b901abba31a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GUI">
+      <UniqueIdentifier>{b84ce9b4-f549-4e15-8677-dfebd6f8c1ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\FileIO">
+      <UniqueIdentifier>{a84d07aa-82f4-44fb-a843-ce35f07509b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GUI">
+      <UniqueIdentifier>{3e9431d6-d66b-4767-b2df-a1ee62256706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Structs">
+      <UniqueIdentifier>{7f416301-0a3d-4cf9-8b9a-d8cc0e2a3353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\World">
+      <UniqueIdentifier>{2356a2f0-f7d6-4d6a-863e-5a8bf1690ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Screens">
+      <UniqueIdentifier>{efdbb904-9c3a-4974-8e66-cd863907f529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Test">
+      <UniqueIdentifier>{dab3da1d-86e1-4e89-a839-2c6f2fe1dfaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Misc">
+      <UniqueIdentifier>{053f1bb2-cafd-465b-9cf1-66e7f036e34c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Test">
+      <UniqueIdentifier>{9a36b534-f774-4c25-a1fe-956d4312a72b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Screens">
+      <UniqueIdentifier>{c1084e26-d644-4555-ba80-0258afb2331c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\World">
+      <UniqueIdentifier>{53a29bdf-a099-497e-8192-472f0c9b6174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameObjectComponents">
+      <UniqueIdentifier>{435f911e-8a38-4f8c-a1ea-c3574af5d11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameObjectComponents">
+      <UniqueIdentifier>{2f131380-086f-44b7-839e-2b6d72304775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Particles">
+      <UniqueIdentifier>{95abb594-e543-4c8d-8deb-88f9816a1b88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Levels">
+      <UniqueIdentifier>{7f1b19e6-d3ec-4fa2-9bb5-38feab4b42da}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TextProvider.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationReader.cpp">
+      <Filter>Fichiers sources\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader.cpp">
+      <Filter>Fichiers sources\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapFont.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapText.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="global_colors.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationData.cpp">
+      <Filter>Fichiers sources\Structs</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalResource.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedSprite.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\sqlite-amalgamation-3220000\sqlite3.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InputController.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="SlicedSprited.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="YesOrNoForm.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGameProjectTests.cpp">
+      <Filter>Fichiers sources\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectComponent.cpp">
+      <Filter>Fichiers sources\GameObjectComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\Particles\ParticleData.cpp">
+      <Filter>Fichiers sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\Particles\ParticleGenerator.cpp">
+      <Filter>Fichiers sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\Particles\ParticleSpawner.cpp">
+      <Filter>Fichiers sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\Particles\ParticleSystem.cpp">
+      <Filter>Fichiers sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\Particles\ParticleUpdater.cpp">
+      <Filter>Fichiers sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIConstants.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMapScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldInterface.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITabBar.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITabButton.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TabBar.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TabButton.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedTabBar.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedTabButton.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Market.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedGameObject.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedTile.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Logger.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="LogLevel.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="global_definitions.h">
+      <Filter>Fichiers d%27en-tête\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="TextProvider.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Language.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceType.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorID.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationData.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayMode.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationReader.h">
+      <Filter>Fichiers d%27en-tête\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="Reader.h">
+      <Filter>Fichiers d%27en-tête\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationIO.h">
+      <Filter>Fichiers d%27en-tête\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapFont.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapText.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalResource.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="InputController.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="global_math.h">
+      <Filter>Fichiers d%27en-tête\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="global_color.h">
+      <Filter>Fichiers d%27en-tête\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectState.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectType.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="SlicedSprite.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="OrnamentStyle.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="YesOrNoForm.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGameProjectTests.h">
+      <Filter>Fichiers d%27en-tête\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="icon.h">
+      <Filter>Fichiers d%27en-tête\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIConstants.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectComponent.h">
+      <Filter>Fichiers d%27en-tête\GameObjectComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMapScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldInterface.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUITabBar.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUITabButton.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumNames.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="TabBar.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TabButton.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Market.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedTabBar.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedTabButton.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedTile.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedGameObject.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedTileData.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="LightData.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldData.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
