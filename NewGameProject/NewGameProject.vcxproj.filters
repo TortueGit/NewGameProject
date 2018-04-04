@@ -234,6 +234,33 @@
     <ClCompile Include="TriggerContent.cpp">
       <Filter>Fichiers sources\Structs</Filter>
     </ClCompile>
+    <ClCompile Include="CheckBox.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrowSelector.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrowButton.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBindingsScreen.cpp">
+      <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBar.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollHelper.cpp">
+      <Filter>Fichiers sources\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationWriter.cpp">
+      <Filter>Fichiers sources\FileIO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -410,9 +437,6 @@
     <ClInclude Include="WorldData.h">
       <Filter>Fichiers d%27en-tête\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="MapDynamicTileID.h">
-      <Filter>Fichiers d%27en-tête\Enums</Filter>
-    </ClInclude>
     <ClInclude Include="FloatTriangle.h">
       <Filter>Fichiers d%27en-tête\World</Filter>
     </ClInclude>
@@ -427,6 +451,33 @@
     </ClInclude>
     <ClInclude Include="Condition.h">
       <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBox.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowSelector.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowButton.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBindingsScreen.h">
+      <Filter>Fichiers d%27en-tête\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBar.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollHelper.h">
+      <Filter>Fichiers d%27en-tête\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationWriter.h">
+      <Filter>Fichiers d%27en-tête\FileIO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

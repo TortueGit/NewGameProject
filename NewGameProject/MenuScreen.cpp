@@ -1,4 +1,5 @@
 #include "MenuScreen.h"
+#include "OptionsScreen.h"
 #include "ScreenManager.h"
 #include "ParticleSystem.h"
 #include "GUIConstants.h"
@@ -153,7 +154,7 @@ void MenuScreen::onSaveGame() {
 }
 
 void MenuScreen::onOptions() {
-	
+	setNextScreen(new OptionsScreen());
 }
 
 void MenuScreen::onKeybindings() {
