@@ -3,7 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "AnimatedTileData.h"
-#include "LightData.h"
+#include "TriggerData.h"
 
 struct WorldData {
 	virtual ~WorldData() {};
@@ -21,7 +21,7 @@ struct WorldData {
 	std::vector<bool> collidableTiles;
 	std::vector<std::vector<bool>> collidableTilePositions;
 
-	std::vector<LightData> lights;
+	std::vector<TriggerData> triggers;
 
 	sf::FloatRect mapRect;
 };

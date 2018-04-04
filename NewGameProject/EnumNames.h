@@ -51,10 +51,6 @@ public:
 		case Key::MAX:
 		case Key::VOID:
 			return "Unknown";
-		case Key::CharacterInfo:
-			return "CharacterInfo";
-		case Key::Down:
-			return "MoveDown";
 		case Key::Escape:
 			return "Exit";
 		case Key::Market:
@@ -75,56 +71,12 @@ public:
 			return "Search";
 		case Key::Occult:
 			return "Occult";
-		case Key::Inventory:
-			return "Inventory";
-		case Key::Map:
-			return "Map";
-		case Key::Spellbook:
-			return "Spellbook";
-		case Key::Interact:
-			return "Interact";
-		case Key::Jump:
-			return "Jump";
-		case Key::Left:
-			return "MoveLeft";
 		case Key::Quickload:
 			return "Quickload";
 		case Key::Quicksave:
 			return "Quicksave";
-		case Key::Journal:
-			return "Journal";
 		case Key::Confirm:
 			return "Confirm";
-		case Key::Right:
-			return "MoveRight";
-		case Key::Chop:
-			return "Chop";
-		case Key::FirstSpell:
-			return "FirstSpell";
-		case Key::SecondSpell:
-			return "SecondSpell";
-		case Key::ThirdSpell:
-			return "ThirdSpell";
-		case Key::FourthSpell:
-			return "FourthSpell";
-		case Key::FifthSpell:
-			return "FifthSpell";
-		case Key::QuickSlot1:
-			return "Quickslot1";
-		case Key::QuickSlot2:
-			return "Quickslot2";
-		case Key::Up:
-			return "MoveUp";
-		case Key::ToggleTooltips:
-			return "ToggleTooltips";
-		case Key::SwitchTarget:
-			return "SwitchTarget";
-		case Key::Screenshot:
-			return "Screenshot";
-		case Key::BackToCheckpoint:
-			return "BackToCheckpoint";
-		case Key::ToggleAutotarget:
-			return "ToggleAutotarget";
 		}
 	}
 

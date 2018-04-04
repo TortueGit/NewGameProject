@@ -239,15 +239,15 @@ bool InputController::isKeyPressed(sf::Keyboard::Key key) const {
 }
 
 bool InputController::isSelected() const {
-	return isKeyJustPressed(Key::Confirm) || isKeyJustPressed(Key::Jump) || isKeyJustPressed(Key::Interact);
+	return isKeyJustPressed(Key::Confirm);
 }
 
 bool InputController::isScrolledUp() const {
-	return isKeyJustPressed(Key::Up) || isMouseWheelScrolledUp();
+	return isMouseWheelScrolledUp();
 }
 
 bool InputController::isScrolledDown() const {
-	return isKeyJustPressed(Key::Down) || isMouseWheelScrolledDown();
+	return isMouseWheelScrolledDown();
 }
 
 Cursor& InputController::getCursor() {

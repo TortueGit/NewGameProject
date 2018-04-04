@@ -82,7 +82,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>H:\VSProject\Ressources\Particles;H:\VSProject\Ressources\sqlite-amalgamation-3220000;H:\VSProject\Ressources\SDK\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>H:\VSProject\Ressources\tinyxml2;H:\VSProject\Ressources\Particles;H:\VSProject\Ressources\sqlite-amalgamation-3220000;H:\VSProject\Ressources\SDK\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -110,7 +110,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>H:\VSProject\Ressources\Particles;H:\VSProject\Ressources\sqlite-amalgamation-3220000;H:\VSProject\Ressources\SDK\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>H:\VSProject\Ressources\tinyxml2;H:\VSProject\Ressources\Particles;H:\VSProject\Ressources\sqlite-amalgamation-3220000;H:\VSProject\Ressources\SDK\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -127,6 +127,7 @@
     <ClCompile Include="..\..\Ressources\Particles\ParticleSystem.cpp" />
     <ClCompile Include="..\..\Ressources\Particles\ParticleUpdater.cpp" />
     <ClCompile Include="..\..\Ressources\sqlite-amalgamation-3220000\sqlite3.c" />
+    <ClCompile Include="..\..\Ressources\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="AnimatedGameObject.cpp" />
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="AnimatedSprite.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
     <ClCompile Include="ErrorScreen.cpp" />
+    <ClCompile Include="FloatTriangle.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectComponent.cpp" />
@@ -151,7 +153,6 @@
     <ClCompile Include="InputController.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainMapScreen.cpp" />
     <ClCompile Include="Market.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="NewGameProjectTests.cpp" />
@@ -167,9 +168,11 @@
     <ClCompile Include="TexturedTabBar.cpp" />
     <ClCompile Include="TexturedTabButton.cpp" />
     <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="TriggerContent.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="WorldInterface.cpp" />
+    <ClCompile Include="WorldReader.cpp" />
     <ClCompile Include="WorldScreen.cpp" />
     <ClCompile Include="YesOrNoForm.cpp" />
   </ItemGroup>
@@ -181,6 +184,7 @@
     <ClInclude Include="BitmapFont.h" />
     <ClInclude Include="BitmapText.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Condition.h" />
     <ClInclude Include="ConfigurationData.h" />
     <ClInclude Include="ConfigurationIO.h" />
     <ClInclude Include="ConfigurationReader.h" />
@@ -190,6 +194,7 @@
     <ClInclude Include="EnumNames.h" />
     <ClInclude Include="ErrorID.h" />
     <ClInclude Include="ErrorScreen.h" />
+    <ClInclude Include="FloatTriangle.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectComponent.h" />
@@ -207,10 +212,9 @@
     <ClInclude Include="InputController.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="Language.h" />
-    <ClInclude Include="LightData.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LogLevel.h" />
-    <ClInclude Include="MainMapScreen.h" />
+    <ClInclude Include="MapDynamicTileID.h" />
     <ClInclude Include="Market.h" />
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="NewGameProjectTests.h" />
@@ -228,9 +232,12 @@
     <ClInclude Include="TexturedTabButton.h" />
     <ClInclude Include="TexturedTabBar.h" />
     <ClInclude Include="TileMap.h" />
+    <ClInclude Include="TriggerContent.h" />
+    <ClInclude Include="TriggerData.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="WorldData.h" />
+    <ClInclude Include="WorldReader.h" />
     <ClInclude Include="WorldScreen.h" />
     <ClInclude Include="WorldInterface.h" />
     <ClInclude Include="YesOrNoForm.h" />

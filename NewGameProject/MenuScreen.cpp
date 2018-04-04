@@ -140,7 +140,8 @@ void MenuScreen::onResume() {
 }
 
 void MenuScreen::onNewGame() {
-	
+	/*Screen* nextScreen = nullptr;
+	setNextScreen(nextScreen);*/
 }
 
 void MenuScreen::onLoadGame() {

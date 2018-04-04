@@ -14,7 +14,7 @@ namespace particles {
 
 class MenuScreen final : public Screen {
 public:
-	MenuScreen(/*CharacterCore* core*/);
+	MenuScreen();
 	~MenuScreen();
 
 	void execUpdate(const sf::Time& frameTime) override;

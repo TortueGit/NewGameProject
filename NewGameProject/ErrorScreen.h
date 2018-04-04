@@ -6,7 +6,7 @@
 
 class ErrorScreen final : public Screen {
 public:
-	ErrorScreen(/*CharacterCore* core*/);
+	ErrorScreen();
 
 	void render(sf::RenderTarget& renderTarget) override;
 	void execUpdate(const sf::Time& frameTime) override;

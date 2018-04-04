@@ -64,6 +64,25 @@ void WorldScreen::execOnExit() {
 	//CLEAR_VECTOR(m_overlayQueue);
 }
 
+void WorldScreen::execUpdate(const sf::Time& frameTime) {
+
+	m_interface->update(frameTime);
+
+	if (g_inputController->isKeyJustPressed(Key::Quickload)) {
+		quickload();
+	}
+	else if (g_inputController->isKeyJustPressed(Key::Quicksave)) {
+		quicksave();
+	}
+
+#ifdef DEBUG
+	if (g_inputController->isKeyJustPressed(Key::Debug)) {
+		ConfigurationData& config = g_resourceManager->getConfiguration();
+		config.isDebugRendering = !config.isDebugRendering;
+	}
+#endif // DEBUG
+}
+
 void WorldScreen::render(sf::RenderTarget& renderTarget) {
 	m_interface->render(renderTarget);
 }

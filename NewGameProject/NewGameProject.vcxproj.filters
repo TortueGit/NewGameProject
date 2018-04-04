@@ -183,9 +183,6 @@
     <ClCompile Include="ErrorScreen.cpp">
       <Filter>Fichiers sources\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="MainMapScreen.cpp">
-      <Filter>Fichiers sources\Screens</Filter>
-    </ClCompile>
     <ClCompile Include="WorldInterface.cpp">
       <Filter>Fichiers sources\GUI</Filter>
     </ClCompile>
@@ -224,6 +221,18 @@
     </ClCompile>
     <ClCompile Include="WorldScreen.cpp">
       <Filter>Fichiers sources\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Ressources\tinyxml2\tinyxml2.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatTriangle.cpp">
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldReader.cpp">
+      <Filter>Fichiers sources\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerContent.cpp">
+      <Filter>Fichiers sources\Structs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -353,9 +362,6 @@
     <ClInclude Include="Screen.h">
       <Filter>Fichiers d%27en-tête\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="MainMapScreen.h">
-      <Filter>Fichiers d%27en-tête\Screens</Filter>
-    </ClInclude>
     <ClInclude Include="WorldScreen.h">
       <Filter>Fichiers d%27en-tête\Screens</Filter>
     </ClInclude>
@@ -401,10 +407,25 @@
     <ClInclude Include="AnimatedTileData.h">
       <Filter>Fichiers d%27en-tête\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="LightData.h">
+    <ClInclude Include="WorldData.h">
       <Filter>Fichiers d%27en-tête\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="WorldData.h">
+    <ClInclude Include="MapDynamicTileID.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatTriangle.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldReader.h">
+      <Filter>Fichiers d%27en-tête\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerData.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerContent.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Condition.h">
       <Filter>Fichiers d%27en-tête\Structs</Filter>
     </ClInclude>
   </ItemGroup>

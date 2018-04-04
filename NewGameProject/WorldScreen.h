@@ -16,14 +16,14 @@ public:
 	// the rest, that cannot be loaded async
 	virtual void loadSync() = 0;
 
-	//void execUpdate(const sf::Time& frameTime) override;
+	void execUpdate(const sf::Time& frameTime) override;
 	void execOnExit() override;
 	void render(sf::RenderTarget& renderTarget) override;
 	void renderAfterForeground(sf::RenderTarget& renderTarget);
 
-	// and for the world
+	//// and for the world
 	//virtual const World* getWorld() const = 0;
-	// and for the world data
+	//// and for the world data
 	//virtual const WorldData* getWorldData() const = 0;
 	// do everything thats needed before leaving the world screen and entering a new level / world. 
 	// Return whether this is possible (it's not possible on a game over, for example)
